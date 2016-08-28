@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 import android.view.View;
@@ -81,5 +82,13 @@ public class NewProjectSumHomeActivity extends BaseActivity {
             }
         }
     }
-
+    @Override
+    public void onBackPressed() {
+        if (drawerlayout.isDrawerOpen(GravityCompat.START)) {
+            drawerlayout.closeDrawer(GravityCompat.START);
+        } else {
+                super.onBackPressed();
+                return;
+            }
+    }
 }
