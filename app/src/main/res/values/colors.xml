@@ -3,4 +3,135 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="darkGray">#45505D</color>
+    <color name="offWhite">#EEEEEA</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="header_light_red">#e7675f</color>
+    <color name="startScreenButton">#7488A0</color>
+    <color name="startScreenText">#4E687F</color>
+    <color name="startScreenMargin">#C5C4C0</color>
+    <color name="loginText">#525150</color>
+    <color name="dividerHintColor">#C3C3C4</color>
+
+    <color name="searchTextColor">#8d8d8d</color>
+    <color name="searchBackColor">#4c4c4c</color>
+
+
+    <color name="payment_free_comp_default">#a7a6a3</color>
+    <color name="payment_free_comp_click">#8e8d8b</color>
+
+    <color name="payment_redeem_comp_default">#ffba35</color>
+    <color name="payment_redeem_comp_click">#d99e2d</color>
+
+    <color name="payment_we_chat_default">#00be0c</color>
+    <color name="payment_we_chat_click">#00a20a</color>
+
+
+    <color name="payment_ali_default">#00aaee</color>
+    <color name="payment_ali_click">#0091cb</color>
+
+    <color name="payment_wallet_default">#3f84fb</color>
+    <color name="payment_waller_click">#3670d6</color>
+
+    <color name="payment_paypal_default">#0179c0</color>
+    <color name="payment_paypal_click">#0167a3</color>
+
+    <color name="bg_color">#efeeea</color>
+    <color name="setting_text_color">#313131</color>
+    <color name="setting_light_text_color">#989795</color>
+    <color name="setting_divider">#c4c4c4</color>
+
+
+    <color name="share_light_text">#838381</color>
+    <color name="share_text_color">#30302f</color>
+    <color name="share_weibo">#e79300</color>
+    <color name="share_wechat">#00bd0c</color>
+    <color name="share_fb_color">#2e4b88</color>
+    <color name="share_twitter">#3b88c3</color>
+    <color name="share_googlePlus">#cc3c2a</color>
+    <color name="share_custom">#fe9525</color>
+    <color name="share_dialog_item_pressed">#E2E1DD</color>
+
+
+    <color name="change_phone_icon_colors">#bfbfbf</color>
+
+
+
+    <color name="header_red_bar_color">#E7675F</color>
+    <color name="header_green_bar_color">#64B963</color>
+
+
+    <color name="buy_qouta_default">#54abed</color>
+    <color name="buy_qouta_click">#4792ca</color>
+
+
+    <color name="buy_qouta_progress_filled">#ff5945</color>
+    <color name="buy_qouta_progress_not_filled">#bfbebb</color>
+    <color name="buy_qouta_text_blue">#31b0f1</color>
+
+    <color name="bg_with_transparency">#66000000</color>
+    <color name="golden_star">#FFC038</color>
+
+
+    <color name="register_splash_bg">#45505d</color>
+    <color name="initial_wizard_sms_text">#e4e3e1</color>
+    <color name="initial_wizard_sms_text_hint">#8d9299</color>
+    <color name="initial_wizard_countries_light_text">#B5B5B5</color>
+
+    <color name="alert_dialog_bg">#e9eded</color>
+    <color name="alert_dialog_blue_text">#33bee5</color>
+    <color name="alert_dialog_text_color">#45505d</color>
+    <color name="alert_dialog_lines_color">#dcdcdc</color>
+
+
+    <!-- GeneralPurposeDialog -->
+    <color name="md_material_blue_500">#5677fc</color>
+    <color name="dialog_title">#292825</color>
+    <color name="dialog_content">#686868</color>
+    <color name="dialog_positive">#0089ff</color>
+
+
+    <!-- Modify Password -->
+    <color name="modify_pass_text_color">#585858</color>
+    <color name="modify_pass_view_color">#7489a0</color>
+    <color name="modify_pass_hint_color">#c4c4c4</color>
+
+
+    <!-- Account Manager screen -->
+    <color name="account_icon_colors">#4878b0</color>
+    <color name="account_blue_icon_color">#4878b0</color>
+    <color name="account_yellow_icon_color">#c6a924</color>
+    <color name="logout_red_color">#e7675f</color>
+
+
+    <!-- Register Login screen -->
+    <color name="register_login_blue">#38a1f7</color>
+
+    <!-- Side menu screen -->
+    <color name="item_pressed">#ececec</color>
+    <color name="blue_item_pressed">#3496e6</color>
+    <color name="gray_color">#DCDCDB</color>
+
+
+    <!-- Toast -->
+    <color name="toast_bg">#357be7</color>
+    <color name="toast_connect_bg">#00b2ee</color>
+
+    <!-- ShareActivity -->
+    <color name="share_bg_gray">#eeeeee</color>
+    <color name="share_title_color">#0652cb</color>
+    <color name="btn_share">#0a84e7</color>
+    <color name="btn_share_clicked">#3cb034</color>
+    <color name="share_sina">#d52b2a</color>
+    <color name="share_weixin">#1b8502</color>
+    <color name="share_tencent_weibo">#2a83d3</color>
+    <color name="share_facebook">#0d3d85</color>
+    <color name="share_gplus">#e55242</color>
+    <color name="share_kaixin">#c32139</color>
+    <color name="button_focused">#FF66CCFF</color>
+
+    <color name="nb_desc_content">#616161</color>
+    <color name="separate_line">#c0c0c0</color>
 </resources>
