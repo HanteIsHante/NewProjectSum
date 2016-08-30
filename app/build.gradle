@@ -32,4 +32,8 @@ dependencies {
     //okhtp
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.squareup.okio:okio:1.5.0'
+    // AsyncHttpClient
+    compile 'com.loopj.android:android-async-http:1.4.9'
+    // material dialog
+    compile 'com.afollestad.material-dialogs:core:0.9.0.1'
 }
