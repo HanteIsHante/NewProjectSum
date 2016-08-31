@@ -14,4 +14,5 @@
     <style name="AppWelcome" parent="AppTheme">
         <item name="android:windowBackground">@mipmap/homepage</item>
     </style>
+    <style name="Appwelcome" parent="android:Theme.Translucent.NoTitleBar.Fullscreen"/>
 </resources>
