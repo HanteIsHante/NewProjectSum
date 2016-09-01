@@ -1,5 +1,6 @@
 package com.example.hante.newprojectsum;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,6 +13,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.example.hante.newprojectsum.util.GlideCircleTransform;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -21,14 +25,23 @@ public class NewProjectSumHomeActivity extends BaseActivity {
     NavigationView designNavigationView;
     @Bind(R.id.drawerlayout)
     DrawerLayout drawerlayout;
-
+    private Context mContext;
+    private  ImageView viewById;
+    private ImageView backgroundImg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_project_sum_home);
         ButterKnife.bind(this);
+        mContext = this;
         navViewtoTop();
         initUI();
+        setData();
+    }
+
+    private void setData() {
+        String url = "http://img4.duitang.com/uploads/blog/201311/04/20131104193715_NCexN.thumb.jpeg";
+        Glide.with(mContext).load(url).transform(new GlideCircleTransform(mContext)).into(viewById);
     }
 
     private void navViewtoTop() {
@@ -42,16 +55,13 @@ public class NewProjectSumHomeActivity extends BaseActivity {
     private void initUI() {
         // 得到 顶部头像 Image
         View headerView = designNavigationView.getHeaderView(0);
-        ImageView backgroundImg = (ImageView) headerView.findViewById(R.id.nav_head_background_img);
-        ImageView viewById = (ImageView) headerView.findViewById(R.id.user_photo);
-
+         backgroundImg = (ImageView) headerView.findViewById(R.id.nav_head_background_img);
+         viewById = (ImageView) headerView.findViewById(R.id.user_photo);
         designNavigationView.setItemIconTintList(null);// 图片本身颜色，不是统一颜色
         MenuItem menuItem = designNavigationView.getMenu().findItem(R.id.moments);
 //        menuItem.setVisible(false);//true  显示 false 隐藏
         removeNavigationViewScroller(designNavigationView);  //去掉侧边滚动条
         clickOutNavigationViewClose();// 点击侧边框外部，关闭NavigationView
-
-
     }
 
     private void clickOutNavigationViewClose() {
