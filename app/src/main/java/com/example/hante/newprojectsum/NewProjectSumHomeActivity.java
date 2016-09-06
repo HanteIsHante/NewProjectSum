@@ -1,6 +1,7 @@
 package com.example.hante.newprojectsum;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,13 +21,14 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.hante.newprojectsum.activitys.UserInfomationActivity;
 import com.example.hante.newprojectsum.custome.TitleBar;
 import com.example.hante.newprojectsum.util.GlideCircleTransform;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class NewProjectSumHomeActivity extends BaseActivity {
+public class NewProjectSumHomeActivity extends BaseActivity implements View.OnClickListener {
 
     @Bind(R.id.design_navigation_view)
     NavigationView designNavigationView;
@@ -72,6 +74,7 @@ public class NewProjectSumHomeActivity extends BaseActivity {
         View headerView = designNavigationView.getHeaderView(0);
         backgroundImg = (ImageView) headerView.findViewById(R.id.nav_head_background_img);
         viewById = (ImageView) headerView.findViewById(R.id.user_photo);
+        viewById.setOnClickListener(this);
         designNavigationView.setItemIconTintList(null);// 图片本身颜色，不是统一颜色
         MenuItem menuItem = designNavigationView.getMenu().findItem(R.id.moments);
 //        menuItem.setVisible(false);//true  显示 false 隐藏
@@ -149,6 +152,14 @@ public class NewProjectSumHomeActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
             Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.fade);
             getWindow().setEnterTransition(transition);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view == viewById){
+            Intent t = new Intent(getApplicationContext(), UserInfomationActivity.class);
+            startActivity(t);
         }
     }
 }

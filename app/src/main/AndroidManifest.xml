@@ -22,7 +22,8 @@
             android:screenOrientation="portrait"></activity>
         <activity android:name=".NewProjectSumHomeActivity"
             android:screenOrientation="portrait"></activity>
-
+        <activity android:name=".activitys.UserInfomationActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
