@@ -31,8 +31,8 @@ public class WelcomeActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        super.onCreate(savedInstanceState);
         boolean isFirstOpen = SharedPreferenceUtil.getBoolean(WelcomeActivity.this, SharedPreferenceUtil.First_Open, true);
         if (isFirstOpen) {
             Intent intent = new Intent(WelcomeActivity.this,ViewPagerActivity.class);
