@@ -1,11 +1,16 @@
 package com.example.hante.newprojectsum.activitys;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.AlphaAnimation;
 import android.widget.LinearLayout;
 
@@ -27,6 +32,7 @@ public class WelcomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         boolean isFirstOpen = SharedPreferenceUtil.getBoolean(WelcomeActivity.this, SharedPreferenceUtil.First_Open, true);
         if (isFirstOpen) {
             Intent intent = new Intent(WelcomeActivity.this,ViewPagerActivity.class);
@@ -41,6 +47,10 @@ public class WelcomeActivity extends BaseActivity {
         handler = new Handler();
         startopenAnimation();
         Log.d("", "onCreate: ++++++++++++");
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
+            Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.fade);
+            getWindow().setExitTransition(transition);// 退出时
+        }
     }
 
     private void startopenAnimation() {
@@ -49,6 +59,9 @@ public class WelcomeActivity extends BaseActivity {
             @Override
             public void run() {
                 Intent i = new Intent(WelcomeActivity.this, NewProjectSumHomeActivity.class);
+                if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
+                    startActivity(i,ActivityOptions.makeSceneTransitionAnimation(WelcomeActivity.this).toBundle());
+                }
                 startActivity(i);
                 overridePendingTransition(R.anim.animation_enter,R.anim.animation_leave);
                 finish();
