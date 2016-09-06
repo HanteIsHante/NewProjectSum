@@ -6,5 +6,5 @@
     <dimen name="user_text_size">20dp</dimen>
 
     <dimen name="padding_top">25dp</dimen>
-
+    <dimen name="title_right_margin">10dp</dimen>
 </resources>
