@@ -8,8 +8,11 @@ import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -30,6 +33,7 @@ public class NewProjectSumHomeActivity extends BaseActivity {
     private ImageView backgroundImg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_project_sum_home);
         ButterKnife.bind(this);
@@ -37,6 +41,10 @@ public class NewProjectSumHomeActivity extends BaseActivity {
         navViewtoTop();
         initUI();
         setData();
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
+            Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.fade);
+            getWindow().setEnterTransition(transition);
+        }
     }
 
     private void setData() {

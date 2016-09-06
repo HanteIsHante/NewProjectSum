@@ -54,17 +54,19 @@ public class WelcomeActivity extends BaseActivity {
     }
 
     private void startopenAnimation() {
-        setHideAnimation(welcome, 4000);
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent i = new Intent(WelcomeActivity.this, NewProjectSumHomeActivity.class);
                 if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
                     startActivity(i,ActivityOptions.makeSceneTransitionAnimation(WelcomeActivity.this).toBundle());
+                    finish();
+                } else {
+                    setHideAnimation(welcome, 4000);
+                    startActivity(i);
+                    overridePendingTransition(R.anim.animation_enter, R.anim.animation_leave);
+                    finish();
                 }
-                startActivity(i);
-                overridePendingTransition(R.anim.animation_enter,R.anim.animation_leave);
-                finish();
             }
         },2500);
     }
