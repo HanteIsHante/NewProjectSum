@@ -2,23 +2,22 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/payment_ali_default">
+    >
     <ImageView
         android:id="@+id/nav_head_background_img"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="170dp"
+        android:background="@mipmap/topinfo_ban_bg"
         android:scaleType="centerCrop"/>
-    <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_gravity="center"
-    >
+
          <ImageView
+             android:layout_marginTop="30dp"
             android:id="@+id/user_photo"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_gravity="center"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+             android:layout_marginBottom="50dp"
+             android:layout_marginLeft="16dp"
          />
 
         <TextView
@@ -26,9 +25,10 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:textSize="@dimen/user_text_size"
+            android:layout_gravity="bottom|center_horizontal"
             android:text="Jaeger"
-            android:textColor="@color/register_login_blue"
+            android:textColor="@color/white"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
-    </LinearLayout>
+
 
 </FrameLayout>

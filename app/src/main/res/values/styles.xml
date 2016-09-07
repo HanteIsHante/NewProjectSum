@@ -11,4 +11,16 @@
     <style name="TranslucentTheme" parent="AppTheme">
     </style>
 
+    <style name="AppWelcome" parent="AppTheme">
+        <item name="android:windowBackground">@mipmap/homepage</item>
+    </style>
+    <style name="Appwelcome" parent="android:Theme.Translucent.NoTitleBar.Fullscreen"/>
+
+    <style name="TextAppearance_TitleBar_Title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <!-- title文字样式（和toolbar自带样式一样，可自行修改） -->
+    </style>
+
+    <style name="TextAppearance_TitleBar_subTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <!-- 左右文字样式 （和toolbar副标题样式一样，可自行修改）-->
+    </style>
 </resources>

@@ -4,6 +4,7 @@
     android:id="@+id/drawerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.hante.newprojectsum.NewProjectSumHomeActivity">
 
@@ -12,13 +13,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <!--设置 fitsSystemWindow 侧边栏顶部沉浸 ，否则会显示透明-->
-    <android.support.v7.widget.Toolbar
+    <com.example.hante.newprojectsum.custome.TitleBar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/payment_we_chat_default"
         android:paddingTop="@dimen/padding_top"
         android:fitsSystemWindows="true"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
          />
     </LinearLayout>
@@ -27,6 +29,38 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@color/white"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/activity_main_drawer"/>
+        app:menu="@menu/activity_main_drawer">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/buttom_select"
+                    android:text="设置"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="1.0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="14.0dip"
+                    android:layout_marginTop="14.0dip"
+                    android:background="#fff1f1f1" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="退出应用"
+                    android:background="@drawable/buttom_select"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>
