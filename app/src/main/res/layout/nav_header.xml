@@ -2,11 +2,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/payment_ali_default">
+    >
     <ImageView
         android:id="@+id/nav_head_background_img"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="170dp"
+        android:background="@mipmap/topinfo_ban_bg"
         android:scaleType="centerCrop"/>
 
          <ImageView
