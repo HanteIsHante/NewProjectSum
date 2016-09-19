@@ -5,7 +5,7 @@
         <item
             android:id="@+id/moments"
             android:icon="@mipmap/ic_share_moments"
-            android:title="@string/moments" />
+            android:title="@string/webview" />
         <item
             android:id="@+id/wechat"
             android:icon="@mipmap/ic_share_wechat"
