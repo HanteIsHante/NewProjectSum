@@ -7,4 +7,5 @@
 
     <dimen name="padding_top">25dp</dimen>
     <dimen name="title_right_margin">10dp</dimen>
+    <dimen name="common_banner_height">50dp</dimen>
 </resources>

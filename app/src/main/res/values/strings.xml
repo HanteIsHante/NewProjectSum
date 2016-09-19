@@ -4,6 +4,7 @@
 
     <string name="entry">进入首页</string>
     <!-- 分享 -->
+    <string name="webview">WebView</string>
     <string name="share">分享</string>
     <string name="share_title">分享到</string>
     <string name="moments">朋友圈</string>

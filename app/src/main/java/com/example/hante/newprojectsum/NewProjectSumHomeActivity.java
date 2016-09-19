@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.hante.newprojectsum.activitys.UserInfomationActivity;
+import com.example.hante.newprojectsum.activitys.WebViewActivity;
 import com.example.hante.newprojectsum.custome.TitleBar;
 import com.example.hante.newprojectsum.util.GlideCircleTransform;
 
@@ -115,6 +116,12 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 switch (item.getItemId()) {
+                    case R.id.moments:
+                        Intent intent = new Intent(getApplicationContext(), WebViewActivity.class);
+                        intent.putExtra("url", "http://www.jianshu.com/users/7203ddebbbbb/latest_articles");
+                        intent.putExtra("title", "简书");
+                        startActivity(intent);
+                        break;
                     case R.id.qq:
                         Toast.makeText(NewProjectSumHomeActivity.this, "QQ", Toast.LENGTH_SHORT).show();
                         break;
