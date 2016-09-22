@@ -182,6 +182,7 @@ public class BottomSheetActivity extends BaseActivity implements View.OnClickLis
         shareDialogTwitterLinear.setOnClickListener(this);
         shareDialogGoogleplusLinear.setOnClickListener(this);
         shareDialogCustomLinear.setOnClickListener(this);
+        activityCoordinatorLayout.setOnClickListener(this);
         bottomSheetTitleBar.setMyCenterTitle("BottomSheet");
         bottomSheetTitleBar.setMySettingText("分享");
         setSupportActionBar(bottomSheetTitleBar);
@@ -196,7 +197,7 @@ public class BottomSheetActivity extends BaseActivity implements View.OnClickLis
             @Override
             public void onClick(View view) {
                 bottomSheetScrollView.setVisibility(View.VISIBLE);
-                mBottomSheetBehavior.setPeekHeight(330);
+                mBottomSheetBehavior.setPeekHeight(400);
                 mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             }
         });
@@ -241,6 +242,12 @@ public class BottomSheetActivity extends BaseActivity implements View.OnClickLis
             mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         } else if (view == shareDialogCustomLinear){
             mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        } else if (view == activityCoordinatorLayout){
+            if(mBottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED){
+                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            } else {
+                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
         }
     }
 }
