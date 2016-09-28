@@ -191,14 +191,24 @@ public class BottomSheetActivity extends BaseActivity implements View.OnClickLis
         }
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        bottomSheetTitleBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mBottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED){
+                    mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                } else {
+                    finish();
+                }
+            }
+        });
         mBottomSheetBehavior = BottomSheetBehavior.from(bottomSheetScrollView);
 
         bottomSheetTitleBar.setSettingTextOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 bottomSheetScrollView.setVisibility(View.VISIBLE);
-                mBottomSheetBehavior.setPeekHeight(400);
-                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+//                mBottomSheetBehavior.setPeekHeight(400); 设置显示高度
+                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
             }
         });
         mBottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
