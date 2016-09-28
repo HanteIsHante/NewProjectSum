@@ -9,7 +9,7 @@
         <item
             android:id="@+id/wechat"
             android:icon="@mipmap/ic_share_wechat"
-            android:title="@string/wechat" />
+            android:title="@string/bottomsheet" />
         <item
             android:id="@+id/weibo"
             android:icon="@mipmap/ic_share_weibo"
