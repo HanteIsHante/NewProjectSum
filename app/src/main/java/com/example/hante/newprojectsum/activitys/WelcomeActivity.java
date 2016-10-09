@@ -45,7 +45,7 @@ public class WelcomeActivity extends BaseActivity {
         ButterKnife.bind(this);
         // 进入的一个页面渐隐
         handler = new Handler();
-        startopenAnimation();
+        startOpenAnimation();
         Log.d("", "onCreate: ++++++++++++");
         if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
             Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.fade);
@@ -53,7 +53,7 @@ public class WelcomeActivity extends BaseActivity {
         }
     }
 
-    private void startopenAnimation() {
+    private void startOpenAnimation() {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
