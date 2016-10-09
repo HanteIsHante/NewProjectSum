@@ -11,9 +11,9 @@
             android:icon="@mipmap/ic_share_wechat"
             android:title="@string/bottomsheet" />
         <item
-            android:id="@+id/weibo"
+            android:id="@+id/Service"
             android:icon="@mipmap/ic_share_weibo"
-            android:title="@string/weibo" />
+            android:title="@string/service" />
     </group>
 
     <item
