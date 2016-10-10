@@ -12,6 +12,7 @@
     <string name="bottomsheet">bottomsheet</string>
     <string name="service">Service</string>
     <string name="notify_service">NotifyService</string>
+    <string name="textinput_layout">TextInputLayout</string>
     <string name="weibo">新浪微博</string>
     <string name="qq">QQ</string>
     <string name="qzone">QQ空间</string>
@@ -32,4 +33,9 @@
     <string name="sharecustomttf">5</string>
     <string name="Sharing_dialog_item_custom">其它社交媒体</string>
     <string name="Sharing_dialog_description">分享获取奖励</string>
+
+    <!--TextInputLayout-->
+    <string name="phone_number">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
 </resources>
