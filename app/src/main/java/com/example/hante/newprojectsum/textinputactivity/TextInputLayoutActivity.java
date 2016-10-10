@@ -121,7 +121,7 @@ public class TextInputLayoutActivity extends BaseActivity {
      */
     private boolean isPasswordRight() {
         String pwd = mEtPassword.getText().toString().trim();
-        if (TextUtils.isEmpty(pwd)) {
+        if (TextUtils.isEmpty(pwd) && pwd.length() < 6) {
             mTextInputLayoutPassword.setErrorEnabled(true);
             mTextInputLayoutPassword.setError("请检查密码");
             mEtPassword.requestFocus();
