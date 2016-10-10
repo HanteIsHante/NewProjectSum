@@ -50,6 +50,7 @@ public class ForegroundNotificationService extends Service{
         builder.setShowWhen(true);
         // 点击通知栏跳转
         Intent slipIntent = new Intent(getApplicationContext(),NewProjectSumHomeActivity.class);
+        slipIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingintent = PendingIntent.getActivity(getApplicationContext(),0,slipIntent,PendingIntent
                 .FLAG_UPDATE_CURRENT);
         builder.setContentIntent(pendingintent);
