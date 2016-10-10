@@ -9,17 +9,17 @@
         <item
             android:id="@+id/wechat"
             android:icon="@mipmap/ic_share_wechat"
-            android:title="@string/wechat" />
+            android:title="@string/bottomsheet" />
         <item
-            android:id="@+id/weibo"
+            android:id="@+id/Service"
             android:icon="@mipmap/ic_share_weibo"
-            android:title="@string/weibo" />
+            android:title="@string/service" />
     </group>
 
     <item
-        android:id="@+id/qq"
+        android:id="@+id/NotifyService"
         android:icon="@mipmap/ic_share_qq"
-        android:title="@string/qq" />
+        android:title="@string/notify_service" />
     <item
         android:id="@+id/qzone"
         android:icon="@mipmap/ic_share_qzone"

@@ -25,6 +25,8 @@ import com.example.hante.newprojectsum.activitys.BottomSheetActivity;
 import com.example.hante.newprojectsum.activitys.UserInfomationActivity;
 import com.example.hante.newprojectsum.activitys.WebViewActivity;
 import com.example.hante.newprojectsum.custome.TitleBar;
+import com.example.hante.newprojectsum.service.ForegroundNotificationService;
+import com.example.hante.newprojectsum.serviceactivity.ServiceActivity;
 import com.example.hante.newprojectsum.util.GlideCircleTransform;
 
 import butterknife.Bind;
@@ -44,6 +46,7 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
     private ImageView backgroundImg;
     private ActionBarDrawerToggle drawerToggle;
 
+    private boolean ifNotify = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
@@ -88,7 +91,8 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
     }
 
     private ActionBarDrawerToggle setDrawerToggle() {
-        return new ActionBarDrawerToggle(this, drawerlayout, toolbar, R.string.drawer_open, R.string.drawer_close);
+        return new ActionBarDrawerToggle(this, drawerlayout, toolbar, R.string.drawer_open,
+                R.string.drawer_close);
     }
 
     @Override
@@ -118,21 +122,43 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
 
                 switch (item.getItemId()) {
                     case R.id.moments:
-                        Intent intent = new Intent(getApplicationContext(), WebViewActivity.class);
-                        intent.putExtra("url", "http://www.jianshu.com/users/7203ddebbbbb/latest_articles");
+                        Intent intent = new Intent(getApplicationContext(),
+                                WebViewActivity.class);
+                        intent.putExtra("url",
+                                "http://www.jianshu.com/users/7203ddebbbbb/latest_articles");
                         intent.putExtra("title", "简书");
                         startActivity(intent);
                         break;
                     case R.id.wechat:
-                        Intent iBottomSheet = new Intent(getApplicationContext(), BottomSheetActivity.class);
+                        Intent iBottomSheet = new Intent(getApplicationContext(),
+                                BottomSheetActivity.class);
                         startActivity(iBottomSheet);
                         break;
-                    case R.id.qq:
-                        Toast.makeText(NewProjectSumHomeActivity.this, "QQ", Toast.LENGTH_SHORT).show();
-                        break;
                     case R.id.qzone:
-                        Toast.makeText(NewProjectSumHomeActivity.this, "QZone", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(NewProjectSumHomeActivity.this, "QZone", Toast.LENGTH_SHORT)
+                                .show();
                         break;
+                    case R.id.Service:
+                        Intent iService = new Intent(getApplicationContext(),
+                                ServiceActivity.class);
+                        startActivity(iService);
+                        break;
+                    case R.id.NotifyService:
+                        Intent iNotifyService = new Intent(getApplicationContext(),
+                                ForegroundNotificationService.class);
+                        if(!ifNotify){
+                            iNotifyService.putExtra("ifClose",0);
+                            iNotifyService.putExtra("title","HanTe");
+                            iNotifyService.putExtra("content","This Is First Notification");
+                            startService(iNotifyService);
+                            ifNotify = true;
+                        } else {
+                            iNotifyService.putExtra("ifClose",1);
+                            startService(iNotifyService);
+                            ifNotify = false;
+                        }
+                        break;
+
                 }
                 item.setCheckable(false);
                 drawerlayout.closeDrawers();
