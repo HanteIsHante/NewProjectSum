@@ -21,9 +21,9 @@
         android:icon="@mipmap/ic_share_qq"
         android:title="@string/notify_service" />
     <item
-        android:id="@+id/qzone"
+        android:id="@+id/TextInput_Layout"
         android:icon="@mipmap/ic_share_qzone"
-        android:title="@string/qzone" />
+        android:title="@string/textinput_layout" />
     <item
         android:icon="@mipmap/ic_share_moments"
         android:title="@string/moments" />

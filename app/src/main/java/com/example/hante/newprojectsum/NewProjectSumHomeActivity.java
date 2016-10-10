@@ -18,7 +18,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.hante.newprojectsum.activitys.BottomSheetActivity;
@@ -27,6 +26,7 @@ import com.example.hante.newprojectsum.activitys.WebViewActivity;
 import com.example.hante.newprojectsum.custome.TitleBar;
 import com.example.hante.newprojectsum.service.ForegroundNotificationService;
 import com.example.hante.newprojectsum.serviceactivity.ServiceActivity;
+import com.example.hante.newprojectsum.textinputactivity.TextInputLayoutActivity;
 import com.example.hante.newprojectsum.util.GlideCircleTransform;
 
 import butterknife.Bind;
@@ -134,10 +134,6 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
                                 BottomSheetActivity.class);
                         startActivity(iBottomSheet);
                         break;
-                    case R.id.qzone:
-                        Toast.makeText(NewProjectSumHomeActivity.this, "QZone", Toast.LENGTH_SHORT)
-                                .show();
-                        break;
                     case R.id.Service:
                         Intent iService = new Intent(getApplicationContext(),
                                 ServiceActivity.class);
@@ -157,6 +153,11 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
                             startService(iNotifyService);
                             ifNotify = false;
                         }
+                        break;
+                    case R.id.TextInput_Layout:
+                        Intent iTextInputLayout = new Intent(getApplicationContext(),
+                                TextInputLayoutActivity.class);
+                        startActivity(iTextInputLayout);
                         break;
 
                 }
