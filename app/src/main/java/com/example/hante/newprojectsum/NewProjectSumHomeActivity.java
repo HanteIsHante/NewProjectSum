@@ -43,7 +43,7 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
 
     private Context mContext;
     private ImageView viewById;
-    private ImageView backgroundImg;
+    private ImageView backgroundImg;// 用户背景
     private ActionBarDrawerToggle drawerToggle;
 
     private boolean ifNotify = false;
