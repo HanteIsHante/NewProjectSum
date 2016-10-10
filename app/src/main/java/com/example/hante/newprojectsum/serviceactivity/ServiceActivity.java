@@ -18,7 +18,8 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
     @Bind(R.id.service_titleBar)
     TitleBar mServiceTitleBar;
 
-    private  boolean mIfStart = false;
+    private boolean mIfStart = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +33,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
         mServiceTitleBar.setMyCenterTitle("Service");
         mServiceTitleBar.setMySettingText("启动");
         setSupportActionBar(mServiceTitleBar);
-        if(getSupportActionBar() == null){
+        if (getSupportActionBar() == null) {
             return;
         }
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -47,12 +48,12 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
             @Override
             public void onClick(View view) {
                 Intent iService = new Intent(getApplicationContext(), SimpleService.class);
-                if(!mIfStart){
+                if (!mIfStart) {
                     Toast.makeText(ServiceActivity.this, "启动Service", Toast.LENGTH_SHORT).show();
-                    iService.putExtra("name","Service");
+                    iService.putExtra("name", "Service");
                     startService(iService);
                     mIfStart = true;
-                }else  {
+                } else {
                     Toast.makeText(ServiceActivity.this, "停止Service", Toast.LENGTH_SHORT).show();
                     stopService(iService);
                     mIfStart = false;

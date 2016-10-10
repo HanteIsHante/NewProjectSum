@@ -17,9 +17,9 @@
     </group>
 
     <item
-        android:id="@+id/qq"
+        android:id="@+id/NotifyService"
         android:icon="@mipmap/ic_share_qq"
-        android:title="@string/qq" />
+        android:title="@string/notify_service" />
     <item
         android:id="@+id/qzone"
         android:icon="@mipmap/ic_share_qzone"

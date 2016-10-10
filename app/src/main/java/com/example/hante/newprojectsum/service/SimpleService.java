@@ -28,11 +28,18 @@ public class SimpleService extends Service {
         super.onCreate();
     }
 
+    /**
+     *
+     * @return START_NOT_STICKY
+     *  当Service因内存不足而被系统kill后，即使系统内存再次空闲时，
+        系统也不会尝试重新创建此Service。除非程序中再次调用startService启动此Service，
+        这是最安全的选项，可以避免在不必要时以及应用能够轻松重启所有未完成的作业时运行服务
+     */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         String name = intent.getStringExtra("name");
         Log.i(TAG, "onStartCommand: NAME: " + name);
-        return super.onStartCommand(intent, flags, startId);
+        return START_NOT_STICKY;
     }
 
 

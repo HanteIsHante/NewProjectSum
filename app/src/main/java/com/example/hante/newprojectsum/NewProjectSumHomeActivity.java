@@ -25,6 +25,7 @@ import com.example.hante.newprojectsum.activitys.BottomSheetActivity;
 import com.example.hante.newprojectsum.activitys.UserInfomationActivity;
 import com.example.hante.newprojectsum.activitys.WebViewActivity;
 import com.example.hante.newprojectsum.custome.TitleBar;
+import com.example.hante.newprojectsum.service.ForegroundNotificationService;
 import com.example.hante.newprojectsum.serviceactivity.ServiceActivity;
 import com.example.hante.newprojectsum.util.GlideCircleTransform;
 
@@ -45,6 +46,7 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
     private ImageView backgroundImg;
     private ActionBarDrawerToggle drawerToggle;
 
+    private boolean ifNotify = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
@@ -132,10 +134,6 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
                                 BottomSheetActivity.class);
                         startActivity(iBottomSheet);
                         break;
-                    case R.id.qq:
-                        Toast.makeText(NewProjectSumHomeActivity.this, "QQ", Toast.LENGTH_SHORT)
-                                .show();
-                        break;
                     case R.id.qzone:
                         Toast.makeText(NewProjectSumHomeActivity.this, "QZone", Toast.LENGTH_SHORT)
                                 .show();
@@ -144,6 +142,21 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
                         Intent iService = new Intent(getApplicationContext(),
                                 ServiceActivity.class);
                         startActivity(iService);
+                        break;
+                    case R.id.NotifyService:
+                        Intent iNotifyService = new Intent(getApplicationContext(),
+                                ForegroundNotificationService.class);
+                        if(!ifNotify){
+                            iNotifyService.putExtra("ifClose",0);
+                            iNotifyService.putExtra("title","HanTe");
+                            iNotifyService.putExtra("content","This Is First Notification");
+                            startService(iNotifyService);
+                            ifNotify = true;
+                        } else {
+                            iNotifyService.putExtra("ifClose",1);
+                            startService(iNotifyService);
+                            ifNotify = false;
+                        }
                         break;
 
                 }
