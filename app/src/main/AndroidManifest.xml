@@ -6,9 +6,6 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
-    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -52,9 +49,11 @@
         <service android:name=".service.BinderService"/>
         <service android:name=".service.ForegroundNotificationService"/>
 
-        <activity android:name=".serviceactivity.ServiceActivity">
+        <activity android:name=".serviceactivity.ServiceActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".textinputactivity.TextInputLayoutActivity">
+        <activity android:name=".textinputactivity.TextInputLayoutActivity"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

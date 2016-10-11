@@ -5,8 +5,10 @@ import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.hante.newprojectsum.BaseActivity;
 import com.example.hante.newprojectsum.R;
@@ -18,6 +20,7 @@ import butterknife.ButterKnife;
 
 public class TextInputLayoutActivity extends BaseActivity {
 
+    private static final String TAG = "TextInputLayoutActivity";
     @Bind(R.id.toolbar_textInputLayout)
     TitleBar mToolbarTextInputLayout;
     @Bind(R.id.text_input_layout)
@@ -43,6 +46,13 @@ public class TextInputLayoutActivity extends BaseActivity {
 
     private void initUI() {
         mToolbarTextInputLayout.setMyCenterTitle("TextInputLayout");
+        mToolbarTextInputLayout.setMySettingText("完成");
+        mToolbarTextInputLayout.setSettingTextOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkIfRight();
+            }
+        });
         setSupportActionBar(mToolbarTextInputLayout);
         getSupportActionBar();
         if (getSupportActionBar() == null) {
@@ -59,6 +69,23 @@ public class TextInputLayoutActivity extends BaseActivity {
         mEtPhone.addTextChangedListener(new MyTextWatcher(mEtPhone));
         mEtPassword.addTextChangedListener(new MyTextWatcher(mEtPassword));
         mEtEmail.addTextChangedListener(new MyTextWatcher(mEtEmail));
+    }
+
+    private void checkIfRight() {
+        if(!isPhoneNumber()){
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(!isPasswordRight()){
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(!isEmailRight()){
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
 
@@ -121,7 +148,9 @@ public class TextInputLayoutActivity extends BaseActivity {
      */
     private boolean isPasswordRight() {
         String pwd = mEtPassword.getText().toString().trim();
-        if (TextUtils.isEmpty(pwd)) {
+        int length = pwd.length();
+        Log.i(TAG, "isPasswordRight: Size" + length);
+        if (TextUtils.isEmpty(pwd) || length < 6) {
             mTextInputLayoutPassword.setErrorEnabled(true);
             mTextInputLayoutPassword.setError("请检查密码");
             mEtPassword.requestFocus();
