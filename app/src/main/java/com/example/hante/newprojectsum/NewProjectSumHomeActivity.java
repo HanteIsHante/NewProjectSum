@@ -86,6 +86,8 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
         removeNavigationViewScroller(designNavigationView);  //去掉侧边滚动条
         clickOutNavigationViewClose();// 点击侧边框外部，关闭NavigationView
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false); // 禁止显示项目名
+        toolbar.setMyCenterTitle(R.string.app);
         drawerToggle = setDrawerToggle();
         drawerlayout.addDrawerListener(drawerToggle);
     }

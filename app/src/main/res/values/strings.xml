@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">新工程</string>
 
+    <string name="app">New Project</string>
 
     <string name="entry">进入首页</string>
     <!-- 分享 -->
