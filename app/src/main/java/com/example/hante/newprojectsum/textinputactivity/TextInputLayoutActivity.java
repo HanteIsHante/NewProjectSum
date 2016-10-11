@@ -5,6 +5,7 @@ import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -18,6 +19,7 @@ import butterknife.ButterKnife;
 
 public class TextInputLayoutActivity extends BaseActivity {
 
+    private static final String TAG = "TextInputLayoutActivity";
     @Bind(R.id.toolbar_textInputLayout)
     TitleBar mToolbarTextInputLayout;
     @Bind(R.id.text_input_layout)
@@ -121,7 +123,9 @@ public class TextInputLayoutActivity extends BaseActivity {
      */
     private boolean isPasswordRight() {
         String pwd = mEtPassword.getText().toString().trim();
-        if (TextUtils.isEmpty(pwd) && pwd.length() < 6) {
+        int length = pwd.length();
+        Log.i(TAG, "isPasswordRight: Size" + length);
+        if (TextUtils.isEmpty(pwd) || length < 6) {
             mTextInputLayoutPassword.setErrorEnabled(true);
             mTextInputLayoutPassword.setError("请检查密码");
             mEtPassword.requestFocus();

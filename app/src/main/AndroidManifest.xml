@@ -52,9 +52,11 @@
         <service android:name=".service.BinderService"/>
         <service android:name=".service.ForegroundNotificationService"/>
 
-        <activity android:name=".serviceactivity.ServiceActivity">
+        <activity android:name=".serviceactivity.ServiceActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".textinputactivity.TextInputLayoutActivity">
+        <activity android:name=".textinputactivity.TextInputLayoutActivity"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
