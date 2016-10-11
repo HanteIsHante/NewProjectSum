@@ -12,7 +12,8 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.transition.Transition;
+import android.transition.Explode;
+import android.transition.Fade;
 import android.transition.TransitionInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.example.hante.newprojectsum.activitys.BottomSheetActivity;
 import com.example.hante.newprojectsum.activitys.UserInfomationActivity;
 import com.example.hante.newprojectsum.activitys.WebViewActivity;
 import com.example.hante.newprojectsum.custome.TitleBar;
+import com.example.hante.newprojectsum.recyclerview.RecyclerViewActivity;
 import com.example.hante.newprojectsum.service.ForegroundNotificationService;
 import com.example.hante.newprojectsum.serviceactivity.ServiceActivity;
 import com.example.hante.newprojectsum.textinputactivity.TextInputLayoutActivity;
@@ -54,7 +56,7 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
         setContentView(R.layout.activity_new_project_sum_home);
         ButterKnife.bind(this);
         mContext = this;
-        navViewtoTop();
+        navViewToTop();
         initUI();
         setData();
         newAnimationDesign();
@@ -66,7 +68,7 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
         Glide.with(mContext).load(url).transform(new GlideCircleTransform(mContext)).into(viewById);
     }
 
-    private void navViewtoTop() {
+    private void navViewToTop() {
 //        当系统版本小于5.0时，进行如下设置：
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             drawerlayout.setFitsSystemWindows(true);
@@ -161,6 +163,11 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
                                 TextInputLayoutActivity.class);
                         startActivity(iTextInputLayout);
                         break;
+                    case R.id.Recycler_View:
+                        Intent iRecyclerView = new Intent(getApplicationContext(),
+                                RecyclerViewActivity.class);
+                        startActivity(iRecyclerView);
+                        break;
 
                 }
                 item.setCheckable(false);
@@ -190,9 +197,13 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
     }
 
     private void newAnimationDesign() {
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
-            Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.fade);
-            getWindow().setEnterTransition(transition);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Fade fade = (Fade) TransitionInflater.from(NewProjectSumHomeActivity.this).inflateTransition
+                    (R.transition.fade);
+            getWindow().setEnterTransition(fade);
+            Explode explode = new Explode();
+            explode.setDuration(1000);
+            getWindow().setReturnTransition(explode);
         }
     }
 

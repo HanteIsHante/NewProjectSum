@@ -1,10 +1,10 @@
 package com.example.hante.newprojectsum.activitys;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.transition.Explode;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.util.Log;
@@ -58,8 +58,11 @@ public class WelcomeActivity extends BaseActivity {
             @Override
             public void run() {
                 Intent i = new Intent(WelcomeActivity.this, NewProjectSumHomeActivity.class);
-                if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
-                    startActivity(i,ActivityOptions.makeSceneTransitionAnimation(WelcomeActivity.this).toBundle());
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                    Explode explode = (Explode) TransitionInflater.from(WelcomeActivity.this)
+                            .inflateTransition(R.transition .explode);
+                    getWindow().setExitTransition(explode);
+                    startActivity(i);
                     finish();
                 } else {
                     setHideAnimation(welcome, 4000);
