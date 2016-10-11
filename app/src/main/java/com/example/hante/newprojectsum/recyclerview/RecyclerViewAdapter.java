@@ -15,10 +15,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ShortClick shortClick;
 // 定义两个接口
     public interface LongClick {
-        public void onItemClick(View view ,int position);
+          void onItemClick(View view ,int position);
     }
     public interface ShortClick {
-        public void onItemClick(View view ,int position);
+          void onItemClick(View view ,int position);
     }
 
     @Override
