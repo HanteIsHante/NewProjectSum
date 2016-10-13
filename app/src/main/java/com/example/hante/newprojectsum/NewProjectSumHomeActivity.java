@@ -12,7 +12,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.transition.Explode;
 import android.transition.Fade;
 import android.transition.TransitionInflater;
 import android.view.MenuItem;
@@ -201,7 +200,7 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
             Fade fade = (Fade) TransitionInflater.from(NewProjectSumHomeActivity.this).inflateTransition
                     (R.transition.fade);
             getWindow().setEnterTransition(fade);
-            Explode explode = new Explode();
+            Fade explode = new Fade();
             explode.setDuration(1000);
             getWindow().setReturnTransition(explode);
         }
