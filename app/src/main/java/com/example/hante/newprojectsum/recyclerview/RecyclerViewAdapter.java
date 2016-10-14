@@ -11,15 +11,8 @@ import android.widget.TextView;
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
-    private LongClick longClick;
-    private ShortClick shortClick;
-// 定义两个接口
-    public interface LongClick {
-          void onItemClick(View view ,int position);
-    }
-    public interface ShortClick {
-          void onItemClick(View view ,int position);
-    }
+
+    onItemClickListener mOnItemClickListener;
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -36,14 +29,33 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     }
 
+    public interface onItemClickListener {
+         void  onItemClick(View view,int position);
+    }
+
+    /**
+     *
+     * @param onItemClickListener adapter 调用
+     */
+    public void SetOnItemClicListener(final onItemClickListener onItemClickListener){
+        this.mOnItemClickListener = onItemClickListener;
+    }
     // ViewHolder 复用
-     class MyViewHolder extends RecyclerView.ViewHolder{
+     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView mTextView;
         ImageView mImageView;
         public MyViewHolder(View itemView) {
             super(itemView);
 
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick (View view) {
+            if(mOnItemClickListener != null){
+                mOnItemClickListener.onItemClick(view,getPosition());
+            }
         }
     }
 }
