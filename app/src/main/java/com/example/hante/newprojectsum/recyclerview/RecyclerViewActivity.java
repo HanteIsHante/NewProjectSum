@@ -1,10 +1,14 @@
 package com.example.hante.newprojectsum.recyclerview;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.transition.Fade;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -13,6 +17,7 @@ import com.example.hante.newprojectsum.BaseActivity;
 import com.example.hante.newprojectsum.R;
 import com.example.hante.newprojectsum.bean.PrettyGirl;
 import com.example.hante.newprojectsum.custome.TitleBar;
+import com.example.hante.newprojectsum.shareelements.ElementsActivity;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -49,8 +54,8 @@ public class RecyclerViewActivity extends BaseActivity implements SwipeRefreshLa
         ButterKnife.bind(this);
 
         initUI();
+        newAnimationDesign();
     }
-
     private void initUI() {
         mArrayList = new ArrayList<>();
         mRecyclerViewToolBar.setMyCenterTitle("RecyclerView");
@@ -128,9 +133,6 @@ public class RecyclerViewActivity extends BaseActivity implements SwipeRefreshLa
      */
     private void getDataByURL () {
         getURLData(url,page);
-        if(page == 1){
-            mSwipeRefreshLayout.setRefreshing(false);
-        }
     }
 
     private void adapterDate () {
@@ -138,6 +140,7 @@ public class RecyclerViewActivity extends BaseActivity implements SwipeRefreshLa
             mRecyclerViewAdapter = new RecyclerViewAdapter(getApplicationContext(),mArrayList);
             RecyclerView.setAdapter(mRecyclerViewAdapter);
             mRecyclerViewAdapter.notifyDataSetChanged();
+            mSwipeRefreshLayout.setRefreshing(false);
         } else {
             mRecyclerViewAdapter.notifyDataSetChanged();
         }
@@ -146,6 +149,15 @@ public class RecyclerViewActivity extends BaseActivity implements SwipeRefreshLa
             public void onItemClick (View view, int position) {
                 Toast.makeText(RecyclerViewActivity.this, "点击 " + position, Toast.LENGTH_SHORT)
                         .show();
+                Intent iShareElements = new Intent(getApplicationContext(), ElementsActivity.class);
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    View shareView = view;
+                    String transitionName = getString(R.string.share_elements);
+                    ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(RecyclerViewActivity.this, shareView,
+                            transitionName);
+                    startActivity(iShareElements,activityOptions.toBundle());
+                }
+
             }
         });
     }
@@ -159,6 +171,7 @@ public class RecyclerViewActivity extends BaseActivity implements SwipeRefreshLa
             mRecyclerViewAdapter.notifyDataSetChanged();
             mSwipeRefreshLayout.setRefreshing(false);
         }else {
+            mSwipeRefreshLayout.setRefreshing(true);
             getDataByURL();
         }
     }
@@ -208,4 +221,20 @@ public class RecyclerViewActivity extends BaseActivity implements SwipeRefreshLa
             }
         });
     }
+
+
+    /**
+     * 页面退出动画
+     */
+    private void newAnimationDesign () {
+        Fade fade = null;
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            fade = new Fade();
+            fade.setDuration(300);
+            getWindow().setExitTransition(fade);
+        }
+
+
+    }
+
 }

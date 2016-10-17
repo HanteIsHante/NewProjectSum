@@ -29,7 +29,9 @@
     </style>
 
     <!--背景透明-->
-    <style name="SplashTheme" parent="AppTheme">
-        <item name="android:windowBackground">@color/tw__transparent</item>
+    <style name="Transparent" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
+
 </resources>
