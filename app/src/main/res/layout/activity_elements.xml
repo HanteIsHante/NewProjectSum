@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_elements"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.hante.newprojectsum.shareelements.ElementsActivity">
+
+    <com.example.hante.newprojectsum.custome.TitleBar
+        android:id="@+id/toolbar_elements"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/loginText"
+        android:paddingTop="@dimen/padding_top"
+        android:fitsSystemWindows="true"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        />
+
+    <ImageView
+        android:id="@+id/share_img"
+        android:transitionName="@string/share_elements"
+        android:src="@mipmap/ic_share_qq"
+        android:layout_width="100dp"
+        android:layout_height="200dp"/>
+</LinearLayout>

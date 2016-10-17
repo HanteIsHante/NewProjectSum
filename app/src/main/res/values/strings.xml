@@ -40,4 +40,6 @@
     <string name="phone_number">Phone Number</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
+
+    <string name="share_elements">shareElements</string>
 </resources>

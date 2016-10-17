@@ -6,20 +6,24 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<!--广播 静态注册-->
-        <receiver android:name=".broadcast.BootReceiver" android:label="@string/app_name">
+
+        <!-- 广播 静态注册 -->
+        <receiver
+            android:name=".broadcast.BootReceiver"
+            android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </receiver>
+
         <activity
             android:name=".activitys.WelcomeActivity"
             android:launchMode="singleTask"
@@ -44,23 +48,33 @@
         <activity
             android:name=".activitys.UserInfomationActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".recyclerview.RecyclerViewActivity"/>
-        <activity android:name=".activitys.WebViewActivity"/>
+        <activity android:name=".recyclerview.RecyclerViewActivity"
+                  android:theme="@style/MaterialAnimations"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activitys.WebViewActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.BottomSheetActivity"
             android:screenOrientation="portrait"/>
-<!--服务-->
+        <!-- 服务 -->
         <service
             android:name=".service.SimpleService"
             android:exported="false"/>
         <service android:name=".service.BinderService"/>
         <service android:name=".service.ForegroundNotificationService"/>
 
-        <activity android:name=".serviceactivity.ServiceActivity"
+        <activity
+            android:name=".serviceactivity.ServiceActivity"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".textinputactivity.TextInputLayoutActivity"
+        <activity
+            android:name=".textinputactivity.TextInputLayoutActivity"
             android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".shareelements.ElementsActivity"
+                  android:theme="@style/MaterialAnimations"
+                  android:screenOrientation="portrait"
+          >
         </activity>
     </application>
 

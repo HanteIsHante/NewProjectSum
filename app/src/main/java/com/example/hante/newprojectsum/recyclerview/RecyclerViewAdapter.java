@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.hante.newprojectsum.R;
@@ -52,6 +53,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Log.d(TAG, "图片集合 " + mPrettyGirlsData.get(position).getmWho());
         Glide.with(mContext).load(mPrettyGirlsData.get(position).getmImg())
                 .into(holder.mImageView);
+        final PrettyGirl prettyGirl = mPrettyGirlsData.get(position);
         if(mOnItemClickListener != null){
             holder.mImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -61,6 +63,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 }
             });
         }
+        // Title Click
+        holder.mTextViewWho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view) {
+                int adapterPosition = holder.getAdapterPosition();
+                Toast.makeText(mContext, "点击 ："+ prettyGirl.getmWho() + " ; " + adapterPosition,
+                        Toast
+                        .LENGTH_SHORT).show();
+            }
+        });
     }
 
     public interface onItemClickListener {

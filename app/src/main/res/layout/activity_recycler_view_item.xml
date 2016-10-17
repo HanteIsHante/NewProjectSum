@@ -5,6 +5,7 @@
                >
         <ImageView
             android:id="@+id/show_img"
+            android:transitionName="@string/share_elements"
             android:layout_width="100dp"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
