@@ -16,9 +16,16 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 android {
+    signingConfigs {
+        config {
+            keyAlias 'hante'
+            keyPassword 'woshihante'
+            storeFile file('F:/AndroidStudioProjects/NewProjectSum/app/keystore.jks')
+            storePassword 'woshihante'
+        }
+    }
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
-
     defaultConfig {
         applicationId "com.example.hante.newprojectsum"
         minSdkVersion 15
@@ -30,19 +37,20 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.0'
     // 设计
     compile 'com.android.support:design:24.2.0'
-//注解
-    compile "com.jakewharton:butterknife:7.0.1"
-// eventbus
+    //注解
+    compile 'com.jakewharton:butterknife:7.0.1'
+    // eventbus
     compile 'org.greenrobot:eventbus:3.0.0'
     //okhtp
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
