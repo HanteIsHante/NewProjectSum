@@ -150,17 +150,16 @@ public class RecyclerViewActivity extends BaseActivity implements SwipeRefreshLa
             public void onItemClick (View view, int position) {
                 Toast.makeText(RecyclerViewActivity.this, "点击 " + position, Toast.LENGTH_SHORT)
                         .show();
-                String url = mArrayList.get(position).getmImg();
-                Intent iShareElements = new Intent(getApplicationContext(), ElementsActivity.class);
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    View shareView = view;
-                    String transitionName = getString(R.string.share_elements);
-                    iShareElements.putExtra("url",url);
-                    ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(RecyclerViewActivity.this, shareView,
-                            transitionName);
-                    startActivity(iShareElements,activityOptions.toBundle());
-                }
-
+                    String url = mArrayList.get(position).getmImg();
+                    Intent iShareElements = new Intent(getApplicationContext(), ElementsActivity.class);
+                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        View shareView = view;
+                        String transitionName = getString(R.string.share_elements);
+                        iShareElements.putExtra("url",url);
+                        ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(RecyclerViewActivity.this, shareView,
+                                transitionName);
+                        startActivity(iShareElements,activityOptions.toBundle());
+                    }
             }
         });
     }

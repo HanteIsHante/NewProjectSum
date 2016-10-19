@@ -103,7 +103,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             mImageView = (ImageView)itemView.findViewById(R.id.show_img);
             mTextViewTime = (TextView)itemView.findViewById(R.id.item_time);
         }
-
         @Override
         public void onClick (View view) {
             if(mOnItemClickListener != null){
