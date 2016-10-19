@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -37,7 +36,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater itemLayout = LayoutInflater.from(parent.getContext());
         View inflate = itemLayout.inflate(R.layout.activity_recycler_view_item, parent,false);
-        return new MyViewHolder(inflate);
+        return new MyViewHolder(inflate,mOnItemClickListener);
     }
 
     @Override
@@ -65,17 +64,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     mOnItemClickListener.onItemClick(holder.mImageView,adapterPosition);
                 }
             });
+            // Title Click
+            holder.mTextViewWho.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick (View view) {
+                    int adapterPosition = holder.getAdapterPosition();
+                    mOnItemClickListener.onItemClick(holder.mTextViewWho,adapterPosition);
+                }
+            });
         }
-        // Title Click
-        holder.mTextViewWho.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
-                int adapterPosition = holder.getAdapterPosition();
-                Toast.makeText(mContext, "点击 ："+ prettyGirl.getmWho() + " ; " + adapterPosition,
-                        Toast
-                        .LENGTH_SHORT).show();
-            }
-        });
+
     }
 
     public interface onItemClickListener {
@@ -90,15 +88,27 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.mOnItemClickListener = onItemClickListener;
     }
     // ViewHolder 复用
-     class MyViewHolder extends RecyclerView.ViewHolder{
+     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        private final onItemClickListener mOnItemClickListener;
         ImageView mImageView;
         TextView mTextViewWho,mTextViewTime;
-          MyViewHolder(View itemView) {
+          MyViewHolder(View itemView,onItemClickListener onItemClickListener) {
             super(itemView);
+              this.mOnItemClickListener = onItemClickListener;
+              if(mOnItemClickListener != null){
+                  itemView.setOnClickListener(this);
+              }
             mTextViewWho = (TextView)itemView.findViewById(R.id.item_recycler);
             mImageView = (ImageView)itemView.findViewById(R.id.show_img);
             mTextViewTime = (TextView)itemView.findViewById(R.id.item_time);
+        }
+
+        @Override
+        public void onClick (View view) {
+            if(mOnItemClickListener != null){
+                mOnItemClickListener.onItemClick(view,getPosition());
+            }
         }
     }
 }
