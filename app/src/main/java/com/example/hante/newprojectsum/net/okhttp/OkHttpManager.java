@@ -20,16 +20,19 @@ import okhttp3.Response;
 public class OkHttpManager {
 
     OkHttpClient mOkHttpClient = new OkHttpClient();
+
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
-
-     public void getOkHttp(String url){
+    /**
+     * 异步
+     * @param url url
+     */
+     public void getOkHttpAsyn(String url){
          Request getBuild = new Request
                  .Builder()
-                 .url("")
+                 .url(url)
                  .build();
          Call getCall = mOkHttpClient.newCall(getBuild);
-         // 异步
          getCall.enqueue(new Callback() {
              @Override
              public void onFailure (Call call, IOException e) {
@@ -38,18 +41,31 @@ public class OkHttpManager {
 
              @Override
              public void onResponse (Call call, Response response) throws IOException {
-
+                 String s = response.body().toString();
              }
          });
-         // 同步
-         try {
-             Response execute = getCall.execute();
-             String responseString = execute.body().toString();
-         } catch(IOException e) {
-             e.printStackTrace();
-         }
      }
 
+    /**
+     * 同步(阻塞)
+     * @param url url
+     */
+    public String getOkHttpSyn(String url){
+        String responseBack = null;
+        try {
+            Request getBuild = new Request
+                    .Builder()
+                    .url(url)
+                    .build();
+            Call getCall = mOkHttpClient.newCall(getBuild);
+
+            Response execute = getCall.execute();
+            responseBack = execute.body().toString();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        return responseBack;
+    }
 
     public void postOkHttp(String url,String name,String pass,JSONObject json) throws JSONException {
         RequestBody body = RequestBody.create(JSON, String.valueOf(json));
