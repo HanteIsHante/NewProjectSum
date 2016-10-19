@@ -9,6 +9,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Fade;
+import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -229,10 +230,9 @@ public class RecyclerViewActivity extends BaseActivity implements SwipeRefreshLa
      * 页面退出动画
      */
     private void newAnimationDesign () {
-        Fade fade = null;
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            fade = new Fade();
-            fade.setDuration(300);
+            Fade fade = (Fade) TransitionInflater.from(RecyclerViewActivity.this).inflateTransition
+                    (R.transition.fade);
             getWindow().setExitTransition(fade);
         }
 

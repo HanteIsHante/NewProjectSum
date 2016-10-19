@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.hante.newprojectsum.R;
 import com.example.hante.newprojectsum.bean.PrettyGirl;
 
@@ -51,7 +52,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.mTextViewTime.setText(mPrettyGirlsData.get(position).getmPublished());
         Log.d(TAG, "图片集合 " + mPrettyGirlsData.get(position).getmImg());
         Log.d(TAG, "图片集合 " + mPrettyGirlsData.get(position).getmWho());
-        Glide.with(mContext).load(mPrettyGirlsData.get(position).getmImg())
+        Glide.with(mContext)
+                .load(mPrettyGirlsData.get(position).getmImg())
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.mImageView);
         final PrettyGirl prettyGirl = mPrettyGirlsData.get(position);
         if(mOnItemClickListener != null){

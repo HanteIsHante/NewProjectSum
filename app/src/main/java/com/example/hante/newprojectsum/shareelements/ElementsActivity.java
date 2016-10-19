@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.hante.newprojectsum.BaseActivity;
 import com.example.hante.newprojectsum.R;
 
@@ -32,7 +33,9 @@ public class ElementsActivity extends BaseActivity {
     private void initData () {
         String url = getIntent().getStringExtra("url");
         Log.d(TAG, "initData: " + url);
-        Glide.with(this).load(url).into(mShareElementsImg);
+        Glide.with(this).load(url)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(mShareElementsImg);
 
     }
     private void newAnimationDesign() {
