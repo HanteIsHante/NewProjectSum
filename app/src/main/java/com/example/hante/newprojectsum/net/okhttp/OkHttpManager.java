@@ -31,6 +31,7 @@ public class OkHttpManager {
          Request getBuild = new Request
                  .Builder()
                  .url(url)
+                 .get()
                  .build();
          Call getCall = mOkHttpClient.newCall(getBuild);
          getCall.enqueue(new Callback() {
