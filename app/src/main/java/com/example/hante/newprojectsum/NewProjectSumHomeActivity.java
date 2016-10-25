@@ -30,6 +30,7 @@ import com.example.hante.newprojectsum.custome.TitleBar;
 import com.example.hante.newprojectsum.recyclerview.RecyclerViewActivity;
 import com.example.hante.newprojectsum.service.ForegroundNotificationService;
 import com.example.hante.newprojectsum.serviceactivity.ServiceActivity;
+import com.example.hante.newprojectsum.tablelayout.TabLayoutActivity;
 import com.example.hante.newprojectsum.textinputactivity.TextInputLayoutActivity;
 import com.example.hante.newprojectsum.util.GlideCircleTransform;
 
@@ -174,7 +175,10 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
                                 RecyclerViewActivity.class);
                         startActivity(iRecyclerView);
                         break;
-
+                    case R.id.tab_layout:
+                        Intent iTab = new Intent(getApplicationContext(),
+                                TabLayoutActivity.class);
+                        startActivity(iTab);
                 }
                 item.setCheckable(false);
                 drawerlayout.closeDrawers();

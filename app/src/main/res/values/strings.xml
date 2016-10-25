@@ -20,7 +20,7 @@
     <string name="qzone">QQ空间</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-
+    <string name="tab_layout">TabLayout</string>
     <string name="Sharing_text_share_on">分享到:</string>
     <string name="wechatttf">0</string>
     <string name="Sharing_dialog_item_WeChat">微信</string>

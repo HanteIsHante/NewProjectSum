@@ -85,6 +85,8 @@
         </activity>
         <activity android:name=".okhttpactivity.OkHttpActivity">
         </activity>
+        <activity android:name=".tablelayout.TabLayoutActivity">
+        </activity>
     </application>
 
 </manifest>
