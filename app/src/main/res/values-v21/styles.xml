@@ -7,7 +7,8 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-    <style name="MaterialAnimations" parent="@style/Theme.AppCompat.Light.NoActionBar">
+    <style name="MaterialAnimations" parent="@style/TranslucentTheme">
         <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 </resources>

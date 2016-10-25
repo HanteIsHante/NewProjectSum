@@ -17,16 +17,20 @@ import android.transition.TransitionInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.hante.newprojectsum.activitys.BottomSheetActivity;
 import com.example.hante.newprojectsum.activitys.UserInfomationActivity;
 import com.example.hante.newprojectsum.activitys.WebViewActivity;
+import com.example.hante.newprojectsum.application.MyApplication;
 import com.example.hante.newprojectsum.custome.TitleBar;
 import com.example.hante.newprojectsum.recyclerview.RecyclerViewActivity;
 import com.example.hante.newprojectsum.service.ForegroundNotificationService;
 import com.example.hante.newprojectsum.serviceactivity.ServiceActivity;
+import com.example.hante.newprojectsum.tablelayout.TabLayoutActivity;
 import com.example.hante.newprojectsum.textinputactivity.TextInputLayoutActivity;
 import com.example.hante.newprojectsum.util.GlideCircleTransform;
 
@@ -41,6 +45,8 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
     DrawerLayout drawerlayout;
     @Bind(R.id.toolbar)
     TitleBar toolbar;
+    @Bind(R.id.exit_app)
+    Button mExitApp;
 
     private Context mContext;
     private ImageView viewById;
@@ -48,8 +54,9 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
     private ActionBarDrawerToggle drawerToggle;
 
     private boolean ifNotify = false;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate (Bundle savedInstanceState) {
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_project_sum_home);
@@ -62,20 +69,20 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
     }
 
 
-    private void setData() {
+    private void setData () {
         String url = "http://img4.duitang.com/uploads/blog/201311/04/20131104193715_NCexN.thumb.jpeg";
         Glide.with(mContext).load(url).transform(new GlideCircleTransform(mContext)).into(viewById);
     }
 
-    private void navViewToTop() {
+    private void navViewToTop () {
 //        当系统版本小于5.0时，进行如下设置：
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             drawerlayout.setFitsSystemWindows(true);
             drawerlayout.setClipToPadding(false);
         }
     }
 
-    private void initUI() {
+    private void initUI () {
         // 得到 顶部头像 Image
         View headerView = designNavigationView.getHeaderView(0);
         backgroundImg = (ImageView) headerView.findViewById(R.id.nav_head_background_img);
@@ -91,39 +98,40 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
         toolbar.setMyCenterTitle(R.string.app);
         drawerToggle = setDrawerToggle();
         drawerlayout.addDrawerListener(drawerToggle);
+        mExitApp.setOnClickListener(this);
     }
 
-    private ActionBarDrawerToggle setDrawerToggle() {
+    private ActionBarDrawerToggle setDrawerToggle () {
         return new ActionBarDrawerToggle(this, drawerlayout, toolbar, R.string.drawer_open,
                 R.string.drawer_close);
     }
 
     @Override
-    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+    protected void onPostCreate (@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged (Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (drawerToggle.onOptionsItemSelected(item)) {
+    public boolean onOptionsItemSelected (MenuItem item) {
+        if(drawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void clickOutNavigationViewClose() {
+    private void clickOutNavigationViewClose () {
         designNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected (@NonNull MenuItem item) {
 
-                switch (item.getItemId()) {
+                switch(item.getItemId()) {
                     case R.id.moments:
                         Intent intent = new Intent(getApplicationContext(),
                                 WebViewActivity.class);
@@ -145,14 +153,14 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
                     case R.id.NotifyService:
                         Intent iNotifyService = new Intent(getApplicationContext(),
                                 ForegroundNotificationService.class);
-                        if(!ifNotify){
-                            iNotifyService.putExtra("ifClose",0);
-                            iNotifyService.putExtra("title","HanTe");
-                            iNotifyService.putExtra("content","This Is First Notification");
+                        if(!ifNotify) {
+                            iNotifyService.putExtra("ifClose", 0);
+                            iNotifyService.putExtra("title", "HanTe");
+                            iNotifyService.putExtra("content", "This Is First Notification");
                             startService(iNotifyService);
                             ifNotify = true;
                         } else {
-                            iNotifyService.putExtra("ifClose",1);
+                            iNotifyService.putExtra("ifClose", 1);
                             startService(iNotifyService);
                             ifNotify = false;
                         }
@@ -167,7 +175,10 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
                                 RecyclerViewActivity.class);
                         startActivity(iRecyclerView);
                         break;
-
+                    case R.id.tab_layout:
+                        Intent iTab = new Intent(getApplicationContext(),
+                                TabLayoutActivity.class);
+                        startActivity(iTab);
                 }
                 item.setCheckable(false);
                 drawerlayout.closeDrawers();
@@ -176,18 +187,18 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
         });
     }
 
-    private void removeNavigationViewScroller(NavigationView navigationView) {
-        if (navigationView != null) {
+    private void removeNavigationViewScroller (NavigationView navigationView) {
+        if(navigationView != null) {
             NavigationMenuView childAt = (NavigationMenuView) navigationView.getChildAt(0);
-            if (childAt != null) {
+            if(childAt != null) {
                 childAt.setVerticalScrollBarEnabled(false);
             }
         }
     }
 
     @Override
-    public void onBackPressed() {
-        if (drawerlayout.isDrawerOpen(GravityCompat.START)) {
+    public void onBackPressed () {
+        if(drawerlayout.isDrawerOpen(GravityCompat.START)) {
             drawerlayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
@@ -195,8 +206,8 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
         }
     }
 
-    private void newAnimationDesign() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    private void newAnimationDesign () {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Fade fade = (Fade) TransitionInflater.from(NewProjectSumHomeActivity.this).inflateTransition
                     (R.transition.fade);
             getWindow().setEnterTransition(fade);
@@ -207,10 +218,13 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
     }
 
     @Override
-    public void onClick(View view) {
-        if(view == viewById){
+    public void onClick (View view) {
+        if(view == viewById) {
             Intent t = new Intent(getApplicationContext(), UserInfomationActivity.class);
             startActivity(t);
+        } else if(view == mExitApp){
+            MyApplication.getInstance().exit();
+            Toast.makeText(mContext, "退出应用", Toast.LENGTH_SHORT).show();
         }
     }
 }

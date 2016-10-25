@@ -29,8 +29,9 @@
         android:icon="@mipmap/ic_share_moments"
         android:title="@string/recycler_view" />
     <item
+        android:id="@+id/tab_layout"
         android:icon="@mipmap/ic_share_wechat"
-        android:title="@string/wechat" />
+        android:title="@string/tab_layout" />
     <item
         android:icon="@mipmap/ic_share_weibo"
         android:title="@string/weibo" />

@@ -9,6 +9,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Fade;
+import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -149,15 +150,16 @@ public class RecyclerViewActivity extends BaseActivity implements SwipeRefreshLa
             public void onItemClick (View view, int position) {
                 Toast.makeText(RecyclerViewActivity.this, "点击 " + position, Toast.LENGTH_SHORT)
                         .show();
-                Intent iShareElements = new Intent(getApplicationContext(), ElementsActivity.class);
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    View shareView = view;
-                    String transitionName = getString(R.string.share_elements);
-                    ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(RecyclerViewActivity.this, shareView,
-                            transitionName);
-                    startActivity(iShareElements,activityOptions.toBundle());
-                }
-
+                    String url = mArrayList.get(position).getmImg();
+                    Intent iShareElements = new Intent(getApplicationContext(), ElementsActivity.class);
+                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        View shareView = view;
+                        String transitionName = getString(R.string.share_elements);
+                        iShareElements.putExtra("url",url);
+                        ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(RecyclerViewActivity.this, shareView,
+                                transitionName);
+                        startActivity(iShareElements,activityOptions.toBundle());
+                    }
             }
         });
     }
@@ -227,10 +229,9 @@ public class RecyclerViewActivity extends BaseActivity implements SwipeRefreshLa
      * 页面退出动画
      */
     private void newAnimationDesign () {
-        Fade fade = null;
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            fade = new Fade();
-            fade.setDuration(300);
+            Fade fade = (Fade) TransitionInflater.from(RecyclerViewActivity.this).inflateTransition
+                    (R.transition.fade);
             getWindow().setExitTransition(fade);
         }
 

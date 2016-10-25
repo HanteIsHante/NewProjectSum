@@ -13,8 +13,8 @@
         android:id="@+id/toolbar_elements"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/loginText"
         android:paddingTop="@dimen/padding_top"
+        android:background="@color/header_green_bar_color"
         android:fitsSystemWindows="true"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
@@ -24,6 +24,6 @@
         android:id="@+id/share_img"
         android:transitionName="@string/share_elements"
         android:src="@mipmap/ic_share_qq"
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="200dp"/>
 </LinearLayout>
