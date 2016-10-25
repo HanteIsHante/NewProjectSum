@@ -255,9 +255,10 @@ public class BottomSheetActivity extends BaseActivity implements View.OnClickLis
         } else if (view == activityCoordinatorLayout){
             if(mBottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED){
                 mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-            } else {
-                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
             }
+//            else {
+//                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+//            }
         }
     }
 
