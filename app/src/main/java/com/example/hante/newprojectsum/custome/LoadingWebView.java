@@ -10,7 +10,7 @@ import android.widget.ProgressBar;
 import com.example.hante.newprojectsum.R;
 
 /**
- * Created by handan on 2016/9/19.
+ *  webView  顶部加载进度条
  */
 public class LoadingWebView extends WebView {
     private ProgressBar mProgressBar;
