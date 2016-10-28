@@ -25,7 +25,6 @@ import com.bumptech.glide.Glide;
 import com.example.hante.newprojectsum.activitys.BottomSheetActivity;
 import com.example.hante.newprojectsum.activitys.UserInfomationActivity;
 import com.example.hante.newprojectsum.activitys.WebViewActivity;
-import com.example.hante.newprojectsum.application.MyApplication;
 import com.example.hante.newprojectsum.custome.TitleBar;
 import com.example.hante.newprojectsum.recyclerview.RecyclerViewActivity;
 import com.example.hante.newprojectsum.service.ForegroundNotificationService;
@@ -223,7 +222,7 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
             Intent t = new Intent(getApplicationContext(), UserInfomationActivity.class);
             startActivity(t);
         } else if(view == mExitApp){
-            MyApplication.getInstance().exit();
+            finish();
             Toast.makeText(mContext, "退出应用", Toast.LENGTH_SHORT).show();
         }
     }
