@@ -1,24 +1,30 @@
 package com.example.hante.newprojectsum.tablelayout.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.hante.newprojectsum.R;
+import com.example.hante.newprojectsum.tablelayout.LazyFragment;
 
 /**
  * Created by handan on 2016/10/25.
  */
 
-public class DFragment extends Fragment {
+public class DFragment extends LazyFragment {
 
-    @Nullable
+    public static final String INTENT_INT_INDEX="index";
+    public static DFragment newInstance(int tabIndex,boolean isLazyLoad) {
+
+        Bundle args = new Bundle();
+        args.putInt(INTENT_INT_INDEX, tabIndex);
+        args.putBoolean(LazyFragment.INTENT_BOOLEAN_LAZYLOAD, isLazyLoad);
+        DFragment fragment = new DFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
-    public View onCreateView (LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_a, container, false);
-        return v;
+    protected void onCreateViewLazy(Bundle savedInstanceState) {
+        super.onCreateViewLazy(savedInstanceState);
+        setContentView(R.layout.fragment_d);
+
     }
 }

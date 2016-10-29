@@ -24,6 +24,13 @@ import butterknife.ButterKnife;
 
 import static android.support.design.widget.TabLayout.MODE_SCROLLABLE;
 
+/**
+ * 一个Activity里面可能会以viewpager（或其他容器）与多个Fragment来组合使用，
+ * 而如果每个fragment都需要去加载数据，或从本地加载，或从网络加载！
+ *  那么在这个activity刚创建的时候就变成需要初始化大量资源，请求很多接口，这样的结果，我们当然不会满意。
+ *  那么，能不能做到当切换到这个fragment的时候，它才去初始化呢？
+ *
+ */
 public class TabLayoutActivity extends BaseActivity {
 
     @Bind(R.id.toolbar_tabLayout)
@@ -78,11 +85,11 @@ public class TabLayoutActivity extends BaseActivity {
         mDFragment = new DFragment();
         mEFragment = new EFragment();
         mListFragment = new ArrayList<>();
-        mListFragment.add(mEFragment);
-        mListFragment.add(mAFragment);
-        mListFragment.add(mBFragment);
-        mListFragment.add(mCFragment);
-        mListFragment.add(mDFragment);
+        mListFragment.add(mAFragment.newInstance(1,true));
+        mListFragment.add(mBFragment.newInstance(2,true));
+        mListFragment.add(mCFragment.newInstance(3,true));
+        mListFragment.add(mDFragment.newInstance(4,true));
+        mListFragment.add(mEFragment.newInstance(5,true));
         // 将名称加载tab名字列表，正常情况下，我们应该在values/arrays.xml中进行定义然后调用
         mListTitle = new ArrayList<>();
         mListTitle.add("热门免费");
