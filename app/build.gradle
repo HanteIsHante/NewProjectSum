@@ -95,4 +95,6 @@ dependencies {
     }
     androidTestCompile "com.android.support:support-annotations:24.2.1"
 
+    // Espresso 测试 webView
+    androidTestCompile 'com.android.support.test.espresso:espresso-web:2.2.2'
 }
