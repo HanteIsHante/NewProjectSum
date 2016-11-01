@@ -124,6 +124,8 @@ public class TabLayoutActivity extends BaseActivity {
         mMyFragmentAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(),
                 mListFragment,mListTitle);
         mViewPager.setAdapter(mMyFragmentAdapter);
+//        setOffscreenPageLimit()方法后，可以缓存Fragment页面，避免滑动显示的时候多次调用onCreate方法来进行刷新。
+        mViewPager.setOffscreenPageLimit(mListFragment.size());
         mTabLayout.setupWithViewPager(mViewPager);
     }
 }

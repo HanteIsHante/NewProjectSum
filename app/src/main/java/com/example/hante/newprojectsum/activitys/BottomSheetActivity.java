@@ -39,7 +39,7 @@ public class BottomSheetActivity extends BaseActivity implements View.OnClickLis
     LinearLayout wechatLeftMargin;
     @Bind(R.id.share_wechat)
     TextView shareWechat;
-    @Bind(R.id.wechat)
+    @Bind(R.id.weChat)
     TextView wechat;
     @Bind(R.id.share_dialog_wechat_linear)
     LinearLayout shareDialogWechatLinear;
