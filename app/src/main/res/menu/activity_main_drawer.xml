@@ -7,7 +7,7 @@
             android:icon="@mipmap/ic_share_moments"
             android:title="@string/webview" />
         <item
-            android:id="@+id/wechat"
+            android:id="@+id/bottomSheetActivity"
             android:icon="@mipmap/ic_share_wechat"
             android:title="@string/bottomsheet" />
         <item

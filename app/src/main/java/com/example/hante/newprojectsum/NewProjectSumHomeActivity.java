@@ -38,7 +38,7 @@ import butterknife.ButterKnife;
 
 public class NewProjectSumHomeActivity extends BaseActivity implements View.OnClickListener {
 
-    @Bind(R.id.design_navigation_view)
+    @Bind(R.id.design_navigation_view_home)
     NavigationView designNavigationView;
     @Bind(R.id.drawerlayout)
     DrawerLayout drawerlayout;
@@ -46,6 +46,8 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
     TitleBar toolbar;
     @Bind(R.id.exit_app)
     Button mExitApp;
+    @Bind(R.id.setting)
+    Button mSetting;
 
     private Context mContext;
     private ImageView viewById;
@@ -91,13 +93,14 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
         MenuItem menuItem = designNavigationView.getMenu().findItem(R.id.moments);
 //        menuItem.setVisible(false);//true  显示 false 隐藏
         removeNavigationViewScroller(designNavigationView);  //去掉侧边滚动条
-        clickOutNavigationViewClose();// 点击侧边框外部，关闭NavigationView
+         clickOutNavigationViewClose();// 点击侧边框外部，关闭NavigationView
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false); // 禁止显示项目名
         toolbar.setMyCenterTitle(R.string.app);
         drawerToggle = setDrawerToggle();
         drawerlayout.addDrawerListener(drawerToggle);
         mExitApp.setOnClickListener(this);
+        mSetting.setOnClickListener(this);
     }
 
     private ActionBarDrawerToggle setDrawerToggle () {
@@ -126,6 +129,7 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
     }
 
     private void clickOutNavigationViewClose () {
+        if(designNavigationView != null)
         designNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected (@NonNull MenuItem item) {
@@ -139,7 +143,7 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
                         intent.putExtra("title", "简书");
                         startActivity(intent);
                         break;
-                    case R.id.wechat:
+                    case R.id.bottomSheetActivity:
                         Intent iBottomSheet = new Intent(getApplicationContext(),
                                 BottomSheetActivity.class);
                         startActivity(iBottomSheet);
@@ -222,9 +226,11 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
             Intent t = new Intent(getApplicationContext(), UserInfomationActivity.class);
             startActivity(t);
             drawerlayout.closeDrawer(GravityCompat.START);
-        } else if(view == mExitApp){
+        } else if(view == mExitApp) {
             finish();
             Toast.makeText(mContext, "退出应用", Toast.LENGTH_SHORT).show();
+        } else if (view == mSetting){
+            drawerlayout.closeDrawer(GravityCompat.START);
         }
     }
 }
