@@ -221,6 +221,7 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
         if(view == viewById) {
             Intent t = new Intent(getApplicationContext(), UserInfomationActivity.class);
             startActivity(t);
+            drawerlayout.closeDrawer(GravityCompat.START);
         } else if(view == mExitApp){
             finish();
             Toast.makeText(mContext, "退出应用", Toast.LENGTH_SHORT).show();
