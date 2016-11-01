@@ -8,4 +8,5 @@
 ###### [Material-Animations](https://github.com/lgvalle/Material-Animations)
 ######[TabLayout](https://github.com/HanteIsHante/NewProjectSum/tree/master/app/src/main/java/com/example/hante/newprojectsum/tablelayout)
 ######[LazyFragment懒加载](https://github.com/HanteIsHante/NewProjectSum/tree/master/app/src/main/java/com/example/hante/newprojectsum/tablelayout)
-
+######[HomeActivityUnitTest DrawerLayout Espresso测试](https://github
+.com/HanteIsHante/NewProjectSum/blob/master/app/src/androidTest/java/com/example/hante/newprojectsum/HomeActivityUnitTest.java)
