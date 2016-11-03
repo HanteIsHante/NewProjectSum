@@ -33,8 +33,9 @@
         android:icon="@mipmap/ic_share_wechat"
         android:title="@string/tab_layout" />
     <item
+        android:id="@+id/MD"
         android:icon="@mipmap/ic_share_weibo"
-        android:title="@string/weibo" />
+        android:title="@string/MD" />
     <item
         android:icon="@mipmap/ic_share_qq"
         android:title="@string/qq" />

@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.hante.newprojectsum.BaseActivity;
 import com.example.hante.newprojectsum.R;
 import com.example.hante.newprojectsum.bean.PrettyGirl;
+import com.example.hante.newprojectsum.common.Constant;
 import com.example.hante.newprojectsum.custome.TitleBar;
 import com.example.hante.newprojectsum.shareelements.ElementsActivity;
 import com.loopj.android.http.AsyncHttpClient;
@@ -46,7 +47,7 @@ public class RecyclerViewActivity extends BaseActivity implements SwipeRefreshLa
     private RecyclerViewAdapter mRecyclerViewAdapter;
     private int lastVisibleItem;
 
-    private String url = "http://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/";
+    private String url = Constant.IMGUrl;
     private int page = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

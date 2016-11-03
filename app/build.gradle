@@ -97,4 +97,7 @@ dependencies {
 
     // Espresso 测试 webView
     androidTestCompile 'com.android.support.test.espresso:espresso-web:2.2.2'
+
+   //卡片布局
+    compile 'com.android.support:cardview-v7:24.2.1'
 }
