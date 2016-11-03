@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_material_design_app_bar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hante.newprojectsum.meterialdesign.MaterialDesignAppBarActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.example.hante.newprojectsum.custome.TitleBar
+            android:id="@+id/toolbar_MD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#659D43"
+            android:paddingTop="@dimen/padding_top"
+            android:fitsSystemWindows="true"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:layout_scrollFlags="scroll|enterAlways"
+            />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/MD_RecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior= "@string/appbar_scrolling_view_behavior"
+        />
+</android.support.design.widget.CoordinatorLayout>
