@@ -38,7 +38,9 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true  // 开启混淆
+            shrinkResources true
+            // 删除无效Resources；shrinkResources依赖于minifyEnabled，必须和minifyEnabled一起用。
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
         }
