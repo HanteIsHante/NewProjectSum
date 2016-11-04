@@ -175,7 +175,10 @@ public class MaterialDesignAppBarActivity extends BaseActivity {
         });
 
     }
-
+    /**
+     * ProgressDialogFragment
+     * @param show true/false 进度条是否显示/隐藏
+     */
     private void setProgress(boolean show){
         ProgressDialogFragment  progressDialogFragment = new ProgressDialogFragment();
         if(show){
