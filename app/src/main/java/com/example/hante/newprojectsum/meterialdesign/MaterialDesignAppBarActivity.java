@@ -3,6 +3,8 @@ package com.example.hante.newprojectsum.meterialdesign;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,6 +14,7 @@ import com.example.hante.newprojectsum.BaseActivity;
 import com.example.hante.newprojectsum.R;
 import com.example.hante.newprojectsum.activitys.WebViewActivity;
 import com.example.hante.newprojectsum.common.Constant;
+import com.example.hante.newprojectsum.common.ProgressDialogFragment;
 import com.example.hante.newprojectsum.custome.TitleBar;
 import com.example.hante.newprojectsum.meterialdesign.adapter.ZhihuRecyclerViewAdapter;
 import com.example.hante.newprojectsum.meterialdesign.adapter.ZhihuRecyclerViewAdapterReset;
@@ -105,6 +108,7 @@ public class MaterialDesignAppBarActivity extends BaseActivity {
 
 
     private void loadData () {
+        setProgress(true);
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(Constant.ZHIHUURL, new JsonHttpResponseHandler(){
             @Override
@@ -112,6 +116,7 @@ public class MaterialDesignAppBarActivity extends BaseActivity {
                 super.onSuccess(statusCode, headers, response);
                 Log.d(TAG, "onSuccess: 返回请求" + response.toString());
                 String backResp = response.toString();
+                setProgress(false);
                 try {
                     JSONObject mJsonObj =  new JSONObject(backResp);
                     String date = mJsonObj.getString("date");// 日期
@@ -165,8 +170,24 @@ public class MaterialDesignAppBarActivity extends BaseActivity {
             @Override
             public void onFailure (int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 super.onFailure(statusCode, headers, responseString, throwable);
+                setProgress(false);
             }
         });
 
+    }
+
+    private void setProgress(boolean show){
+        ProgressDialogFragment  progressDialogFragment = new ProgressDialogFragment();
+        if(show){
+            progressDialogFragment.setStyle(DialogFragment.STYLE_NO_TITLE,R.style.loading_dialog);
+            progressDialogFragment.setCancelable(false);
+            progressDialogFragment.show(getSupportFragmentManager(),"Dialog");
+        } else  {
+            Fragment dialog = getSupportFragmentManager().findFragmentByTag("Dialog");
+            if(dialog != null){
+                ProgressDialogFragment pdf = (ProgressDialogFragment) dialog;
+                pdf.dismiss();
+            }
+        }
     }
 }
