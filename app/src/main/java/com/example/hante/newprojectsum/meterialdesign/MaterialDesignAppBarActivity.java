@@ -97,7 +97,7 @@ public class MaterialDesignAppBarActivity extends BaseActivity {
                 String title = mListZhihu.get(position).getmTitle();
                 Intent intent = new Intent(getApplicationContext(),
                         WebViewActivity.class);
-                String url = Constant.ARTICELITEM + id;
+                String url = Constant.ARTICELItem + id;
                 intent.putExtra("url",
                         url);
                 intent.putExtra("title", title);
@@ -110,7 +110,7 @@ public class MaterialDesignAppBarActivity extends BaseActivity {
     private void loadData () {
         setProgress(true);
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(Constant.ZHIHUURL, new JsonHttpResponseHandler(){
+        client.get(Constant.ZHIHUUrl, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess (int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
@@ -179,7 +179,7 @@ public class MaterialDesignAppBarActivity extends BaseActivity {
      * ProgressDialogFragment
      * @param show true/false 进度条是否显示/隐藏
      */
-    private void setProgress(boolean show){
+    private  void setProgress (boolean show){
         ProgressDialogFragment  progressDialogFragment = new ProgressDialogFragment();
         if(show){
             progressDialogFragment.setStyle(DialogFragment.STYLE_NO_TITLE,R.style.loading_dialog);

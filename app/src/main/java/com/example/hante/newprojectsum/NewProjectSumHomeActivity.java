@@ -27,6 +27,7 @@ import com.example.hante.newprojectsum.activitys.UserInfomationActivity;
 import com.example.hante.newprojectsum.activitys.WebViewActivity;
 import com.example.hante.newprojectsum.custome.TitleBar;
 import com.example.hante.newprojectsum.meterialdesign.MaterialDesignAppBarActivity;
+import com.example.hante.newprojectsum.okhttpactivity.OkHttpActivity;
 import com.example.hante.newprojectsum.recyclerview.RecyclerViewActivity;
 import com.example.hante.newprojectsum.service.ForegroundNotificationService;
 import com.example.hante.newprojectsum.serviceactivity.ServiceActivity;
@@ -188,6 +189,11 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
                         Intent iMD = new Intent(getApplicationContext(),
                                 MaterialDesignAppBarActivity.class);
                         startActivity(iMD);
+                        break;
+                    case R.id.okhttp:
+                        Intent iOk = new Intent(getApplicationContext(),
+                                OkHttpActivity.class);
+                        startActivity(iOk);
                         break;
                 }
                 item.setCheckable(false);

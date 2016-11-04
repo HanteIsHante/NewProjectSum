@@ -6,9 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.hante.newprojectsum.R;
-import com.example.hante.newprojectsum.okhttpactivity.model.UserInfo;
+import com.example.hante.newprojectsum.okhttpactivity.model.ZhiHuInfo;
 
 import java.util.ArrayList;
 
@@ -19,11 +22,11 @@ import java.util.ArrayList;
 public class OkHttpRecyclerAdapter extends RecyclerView.Adapter<OkHttpRecyclerAdapter
         .MyViewHolder>{
 
-    private ArrayList<UserInfo> mUserInfoData;
+    private ArrayList<ZhiHuInfo> mUserInfoData;
     private Context mContext;
     onItemClickListener mOnItemClickListener;
-    public OkHttpRecyclerAdapter (ArrayList<UserInfo> mUserInfoData, Context mContext) {
-        this.mUserInfoData = mUserInfoData;
+    public OkHttpRecyclerAdapter (ArrayList<ZhiHuInfo> mZhiHuInfoData, Context mContext) {
+        this.mUserInfoData = mZhiHuInfoData;
         this.mContext = mContext;
     }
 
@@ -35,8 +38,12 @@ public class OkHttpRecyclerAdapter extends RecyclerView.Adapter<OkHttpRecyclerAd
 
     @Override
     public void onBindViewHolder (final MyViewHolder holder, int position) {
+
+        Glide.with(mContext).load(mUserInfoData.get(position).getmImg())
+                .into(holder.mImageIcon);
+        holder.mTitle.setText(mUserInfoData.get(position).getmTitle());
         if(mOnItemClickListener != null){
-            holder.mImageIcon.setOnClickListener(new View.OnClickListener() {
+            holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick (View view) {
                     int adapterPosition = holder.getAdapterPosition();
@@ -59,10 +66,14 @@ public class OkHttpRecyclerAdapter extends RecyclerView.Adapter<OkHttpRecyclerAd
         this.mOnItemClickListener = onItemClickListener;
     }
     class MyViewHolder extends RecyclerView.ViewHolder {
-
+        private LinearLayout mLinearLayout;
+        private TextView mTitle;
         private ImageView mImageIcon;
         public MyViewHolder (View itemView) {
             super(itemView);
+            mLinearLayout = (LinearLayout)itemView.findViewById(R.id.card_item);
+            mTitle = (TextView)itemView.findViewById(R.id.zhihu_title);
+            mImageIcon = (ImageView) itemView.findViewById(R.id.zhihu_img);
         }
     }
 }
