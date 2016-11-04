@@ -37,8 +37,9 @@
         android:icon="@mipmap/ic_share_weibo"
         android:title="@string/MD" />
     <item
+        android:id="@+id/okhttp"
         android:icon="@mipmap/ic_share_qq"
-        android:title="@string/qq" />
+        android:title="@string/okHttp" />
     <item
         android:icon="@mipmap/ic_share_qzone"
         android:title="@string/qzone" />
