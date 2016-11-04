@@ -63,6 +63,8 @@ public class OkHttpActivity extends BaseActivity {
             @Override
             public void onResponse (Call call, Response response) throws IOException {
                 String json = response.body().string();
+//                响应体必须最终要被关闭，否则会导致资源泄露、App运行变慢甚至崩溃。
+                response.close();
                 Log.i(TAG, "onResponse: Success" + json);
                 ZhiHu zhiHu = mGson.fromJson(json, ZhiHu.class);
                 Log.d(TAG, "onResponse: 知乎知乎 " + zhiHu.getMStories().toString());
