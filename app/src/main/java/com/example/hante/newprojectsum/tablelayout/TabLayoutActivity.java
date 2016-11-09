@@ -85,7 +85,7 @@ public class TabLayoutActivity extends BaseActivity {
         mDFragment = new DFragment();
         mEFragment = new EFragment();
         mListFragment = new ArrayList<>();
-        mListFragment.add(mAFragment.newInstance(1,true));
+        mListFragment.add(mAFragment.newInstance(1,false));
         mListFragment.add(mBFragment.newInstance(2,true));
         mListFragment.add(mCFragment.newInstance(3,true));
         mListFragment.add(mDFragment.newInstance(4,true));

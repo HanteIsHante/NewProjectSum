@@ -109,6 +109,9 @@ dependencies {
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-
+// retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'//目前最新的版本
+    //添加好这个依赖后我们就可以进行数据转换器的配置了，retrofit内部就会帮我们去转换json字符串为Java对象
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 
 }
