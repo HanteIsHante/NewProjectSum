@@ -25,3 +25,11 @@ header 1 | header 2
 |**[IRetrofit](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/net/retrofit/IRetrofit.java)**|Retrofit 请求|
 |**[DBHelper](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/sqlite/DBHelper.java)**|数据库操作|
 |**[TextInputLayoutActivity](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/textinputactivity/TextInputLayoutActivity.java)**|TextInputLayout 含数据库增删改查操作|
+
+
+####监听
+
+广播| 作用
+---|---
+ **[BootReceiver](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/broadcast/BootReceiver.java)**| 开机自启动
+ **[InstallAppReceiver](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/broadcast/InstallAppReceiver.java)** | 监听手机安装/卸载应用
