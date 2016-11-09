@@ -23,3 +23,5 @@ header 1 | header 2
 |**[activity_material_design_app_bar](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/res/layout/activity_material_design_app_bar.xml)**|**CoordinatorLayout**向上滑动状态栏消失，向下滑动出现|
 |**[OkHttpActivity](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/okhttpactivity/OkHttpActivity.java)**|okhttp请求JSON数据|
 |**[IRetrofit](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/net/retrofit/IRetrofit.java)**|Retrofit 请求|
+|**[DBHelper](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/sqlite/DBHelper.java)**|数据库操作|
+|**[TextInputLayoutActivity](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/textinputactivity/TextInputLayoutActivity.java)**|TextInputLayout 含数据库增删改查操作|
