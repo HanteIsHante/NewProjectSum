@@ -1,5 +1,8 @@
 package com.example.hante.newprojectsum.textinputactivity;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
@@ -13,6 +16,8 @@ import android.widget.Toast;
 import com.example.hante.newprojectsum.BaseActivity;
 import com.example.hante.newprojectsum.R;
 import com.example.hante.newprojectsum.custome.TitleBar;
+import com.example.hante.newprojectsum.sqlite.DBEntry;
+import com.example.hante.newprojectsum.sqlite.DBHelper;
 import com.example.hante.newprojectsum.util.RegularUtils;
 
 import butterknife.Bind;
@@ -35,7 +40,7 @@ public class TextInputLayoutActivity extends BaseActivity {
     EditText mEtEmail;
     @Bind(R.id.text_input_layout_email)
     TextInputLayout mTextInputLayoutEmail;
-
+    private DBHelper mDbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +74,7 @@ public class TextInputLayoutActivity extends BaseActivity {
         mEtPhone.addTextChangedListener(new MyTextWatcher(mEtPhone));
         mEtPassword.addTextChangedListener(new MyTextWatcher(mEtPassword));
         mEtEmail.addTextChangedListener(new MyTextWatcher(mEtEmail));
+        mDbHelper = new DBHelper(getApplicationContext());
     }
 
     private void checkIfRight() {
@@ -84,13 +90,100 @@ public class TextInputLayoutActivity extends BaseActivity {
             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
             return;
         }
+        save2db(mEtPhone.toString(),mEtPassword.toString(),mEtEmail.toString());
         Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+        getUserTableNum();
         finish();
     }
 
+    /**
+     * 添加条目
+     * @param Phone 手机号
+     * @param Password 密码
+     * @param Email  email
+     */
+    private void save2db (String   Phone, String  Password, String  Email) {
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        ContentValues Values = new ContentValues();
+        Values.put(DBEntry.UserTable.USER_NAME,Phone);
+        Values.put(DBEntry.UserTable.USER_PASSWORD,Password);
+        Values.put(DBEntry.UserTable.USER_EMAIL,Email);
+        db.insert(DBEntry.UserTable.TABLE_NAME,null,Values);
+        db.close();
+        Log.d(TAG, "save2db: 保存到数据库");
+    }
 
-    // 动态监听 输入过程
+    /**
+     * 查询所有
+     */
+    private void getUserTableNum(){
+        SQLiteDatabase readDB = mDbHelper.getReadableDatabase();
+        String[] projection = {
+                DBEntry.UserTable._ID,
+                DBEntry.UserTable.USER_NAME,
+                DBEntry.UserTable.USER_PASSWORD,
+                DBEntry.UserTable.USER_EMAIL
+        };
+        Cursor q = readDB.query(
+                DBEntry.UserTable.TABLE_NAME, projection, null, null, null, null, null
+        );
 
+        if( q!= null && q.getCount() > 0){
+            while((q.moveToNext())){
+                String s_ID = q.getString(q.getColumnIndexOrThrow(DBEntry.UserTable._ID));
+                String s_Name = q.getString(q.getColumnIndexOrThrow(DBEntry.UserTable.USER_NAME));
+                String s_Pass = q.getString(q.getColumnIndexOrThrow(DBEntry.UserTable
+                        .USER_PASSWORD));
+                String s_Email = q.getString(q.getColumnIndexOrThrow(DBEntry.UserTable.USER_EMAIL));
+                Log.d(TAG, "getUserTableNum: 列表" + s_ID + s_Name + s_Pass + s_Email);
+            }
+        }
+        if( q!= null){
+            q.close();
+        }
+        readDB.close();
+    }
+
+
+    /**
+     * 修改
+     * @param userName 修改条件
+     * @param password  修改内容
+     */
+    private void updateUserTable(String userName,String password){
+        SQLiteDatabase updateDB = mDbHelper.getWritableDatabase();
+        ContentValues updateValues = new ContentValues();
+        updateValues.put(DBEntry.UserTable.USER_PASSWORD,password);
+        String selection = DBEntry.UserTable.USER_NAME + " LIKE ?";
+        String[] selectionArgs = {
+                userName
+        };
+        updateDB.update(DBEntry.UserTable.TABLE_NAME,updateValues,selection,selectionArgs);
+        updateDB.close();
+    }
+
+    /**
+     * 删除
+     * @param userName 根据userName 查找要删除的内容
+     */
+    private void deleteTableItem(String userName){
+        SQLiteDatabase deleteDb = mDbHelper.getWritableDatabase();
+        String selection = DBEntry.UserTable.USER_NAME + " LIKE ?";
+        String[] selectionArgs = {
+                userName
+        };
+        deleteDb.delete(DBEntry.UserTable.TABLE_NAME ,selection,selectionArgs);
+        deleteDb.close();
+    }
+
+    /**
+     * 删除 数据库表
+     */
+    private void deleteTable(){
+        SQLiteDatabase deleteTable = mDbHelper.getWritableDatabase();
+        deleteTable.delete(DBEntry.UserTable.TABLE_NAME,null,null);
+        deleteTable.close();
+    }
     //动态监听输入过程
     private class MyTextWatcher implements TextWatcher {
 
