@@ -14,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.transition.Fade;
 import android.transition.TransitionInflater;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -55,7 +56,7 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
     private ImageView viewById;
     private ImageView backgroundImg;// 用户背景
     private ActionBarDrawerToggle drawerToggle;
-
+    private long timeSpace ;
     private boolean ifNotify = false;
 
     @Override
@@ -245,5 +246,19 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
         } else if (view == mSetting){
             drawerlayout.closeDrawer(GravityCompat.START);
         }
+    }
+
+    @Override
+    public boolean onKeyDown (int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            if(System.currentTimeMillis() - timeSpace > 2000){
+                timeSpace = System.currentTimeMillis();
+                Toast.makeText(mContext, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            } else {
+                setResult(1);
+                finish();
+            }
+        }
+        return true;
     }
 }
