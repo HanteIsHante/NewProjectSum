@@ -21,4 +21,13 @@ public final class DBEntry {
             public static final String USER_EMAIL = "userEmail";
     }
 
+    /**
+     * 提醒事件 表
+     */
+    public  static abstract class RemindTable implements BaseColumns{
+            public static final String TABLE_NAME = "Remind_data";
+            public static final String REMIND_TITLE = "remind_title";
+            public static final String REMIND_CONTENT = "remind_content";
+            public static final String REMIND_DATA = "remind_time";
+    }
 }
