@@ -32,6 +32,7 @@ import com.example.hante.newprojectsum.okhttpactivity.OkHttpActivity;
 import com.example.hante.newprojectsum.recyclerview.RecyclerViewActivity;
 import com.example.hante.newprojectsum.service.ForegroundNotificationService;
 import com.example.hante.newprojectsum.serviceactivity.ServiceActivity;
+import com.example.hante.newprojectsum.setting.activity.SettingActivity;
 import com.example.hante.newprojectsum.tablelayout.TabLayoutActivity;
 import com.example.hante.newprojectsum.textinputactivity.TextInputLayoutActivity;
 import com.example.hante.newprojectsum.util.GlideCircleTransform;
@@ -245,6 +246,8 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
             Toast.makeText(mContext, "退出应用", Toast.LENGTH_SHORT).show();
         } else if (view == mSetting){
             drawerlayout.closeDrawer(GravityCompat.START);
+            Intent iSetting = new Intent(getApplicationContext(), SettingActivity.class);
+            startActivity(iSetting);
         }
     }
 
