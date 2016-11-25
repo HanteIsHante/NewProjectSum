@@ -13,7 +13,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="165cbe8d99ed152b803e32962bcaf5df3f8cb638" />
         <!-- 广播 静态注册 -->
         <receiver
             android:name=".broadcast.BootReceiver"
@@ -49,10 +51,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="4461dfd5d29d4c8a7a3a360df36cdcb5bbfe049e"/>
 
         <activity
             android:name=".activitys.ViewPagerActivity"

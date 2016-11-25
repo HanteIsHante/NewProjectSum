@@ -3,10 +3,14 @@ package com.example.hante.newprojectsum.application;
 import android.app.Activity;
 import android.app.Application;
 
+import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.answers.Answers;
 import com.squareup.leakcanary.LeakCanary;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.fabric.sdk.android.Fabric;
 
 public class MyApplication extends Application {
 
@@ -20,7 +24,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         this.instance = this;
-
+        Fabric.with(this, new Answers(), new Crashlytics());
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
