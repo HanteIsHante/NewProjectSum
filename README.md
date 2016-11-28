@@ -34,6 +34,7 @@ header 1 | header 2
 **[BootReceiver](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/broadcast/BootReceiver.java)**| 开机自启动
 **[InstallAppReceiver](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/broadcast/InstallAppReceiver.java)** | 监听手机安装/卸载应用
 **[AlarmReceiver](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/setting/broadcast/AlarmReceiver.java)**|闹钟通知广播|
+**[ScreenBroadcastReceiver](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/broadcast/ScreenBroadcastReceiver.java)**|监听屏幕
 ####Service
 |服务|作用|
 ---|---

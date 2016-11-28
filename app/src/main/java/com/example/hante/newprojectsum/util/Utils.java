@@ -20,7 +20,7 @@ public class Utils {
     }
 
     /**
-     * 得到屏幕高
+     * 得到屏幕高  单位： px : 像素
      * @param c  context
      * @return 屏幕高
      */
