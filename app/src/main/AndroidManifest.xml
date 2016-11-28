@@ -41,6 +41,13 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".broadcast.ScreenBroadcastReceiver">
+                <intent-filter>
+                    <action android:name="android.intent.action.SCREEN_ON"/>
+                    <action android:name="android.intent.action.SCREEN_OFF"/>
+                    <action android:name="android.intent.action.USER_PRESENT"/>
+                </intent-filter>
+        </receiver>
         <activity
             android:name=".activitys.WelcomeActivity"
             android:launchMode="singleTask"
