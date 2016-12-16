@@ -96,8 +96,8 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
         designNavigationView.setItemIconTintList(null);// 图片本身颜色，不是统一颜色
         MenuItem menuItem = designNavigationView.getMenu().findItem(R.id.moments);
 //        menuItem.setVisible(false);//true  显示 false 隐藏
-        removeNavigationViewScroller(designNavigationView);  //去掉侧边滚动条
-         clickOutNavigationViewClose();// 点击侧边框外部，关闭NavigationView
+        removeNavigationViewScroller(designNavigationView);
+         clickOutNavigationViewClose();
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false); // 禁止显示项目名
         toolbar.setMyCenterTitle(R.string.app);
@@ -132,6 +132,9 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     *   点击侧边框外部，关闭NavigationView,及item 的点击事件
+     */
     private void clickOutNavigationViewClose () {
         if(designNavigationView != null)
         designNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -205,6 +208,10 @@ public class NewProjectSumHomeActivity extends BaseActivity implements View.OnCl
         });
     }
 
+    /**
+     *   去掉侧边滚动条
+     * @param navigationView 侧边栏视图
+     */
     private void removeNavigationViewScroller (NavigationView navigationView) {
         if(navigationView != null) {
             NavigationMenuView childAt = (NavigationMenuView) navigationView.getChildAt(0);
