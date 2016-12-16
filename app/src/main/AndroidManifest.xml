@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.hante.newprojectsum">
 
-    <uses-sdk android:minSdkVersion="15"/>
-
+    <!--accessibilityService-->
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <!--自动重启权限-->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
@@ -42,6 +42,7 @@
             </intent-filter>
         </receiver>
 
+        <!--accessibilityService -->
         <receiver android:name=".broadcast.ScreenBroadcastReceiver">
                 <intent-filter>
                     <action android:name="android.intent.action.SCREEN_ON"/>
@@ -49,6 +50,7 @@
                     <action android:name="android.intent.action.USER_PRESENT"/>
                 </intent-filter>
         </receiver>
+
         <activity
             android:name=".activitys.WelcomeActivity"
             android:launchMode="singleTask"
@@ -91,6 +93,31 @@
             android:exported="true"
             android:persistent = "true"
             android:priority = "1000"/>
+        <!--AccessibilityService-->
+        <service android:name=".accessibilityservice.MyAccessibilityService"
+                 android:enabled="true"
+                 android:exported="true"
+                 android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <!--在meta-data里申明配置信息-->
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibilityservice" />
+        </service>
+
+        <service android:name=".accessibilityservice.AutoAccessibilityService"
+            android:enabled="true"
+            android:exported="true"
+                 android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/autoaccessibilityservice" />
+        </service>
         <activity
             android:name=".serviceactivity.ServiceActivity"
             android:screenOrientation="portrait">

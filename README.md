@@ -10,6 +10,7 @@ header 1 | header 2
 |**[BottomSheet](https://github.com/hehonghui/android-tech-frontier/blob/master/issue-49/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8BottomSheet.md)**| 底部弹出框 |
 |**[Android5.0 全新设计Material Design TextInputLayout](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/textinputactivity/TextInputLayoutActivity.java)**| MD |
 |**[Material-Animations](https://github.com/lgvalle/Material-Animations)**| MD 动画 |
+|**[AccessibilityService](  https://developer.android.com/reference/android/accessibilityservice/AccessibilityService.html#SERVICE_META_DATA)**|无障碍服务 |
 
 |header 1 | header 2
 |---|---
@@ -39,5 +40,6 @@ header 1 | header 2
 |服务|作用|
 ---|---
 **[AlarmService](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/setting/service/AlarmService.java)**|闹钟提醒通知|
+**[accessibilityservice](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/accessibilityservice)**|无障碍服务（自动安装）|
 
 
