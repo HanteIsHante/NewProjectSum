@@ -10,11 +10,13 @@ import android.widget.Toast;
 
 import com.example.hante.newprojectsum.R;
 import com.example.hante.newprojectsum.common.Constant;
+import com.example.hante.newprojectsum.itemdevider.LinearSpacesItemDecoration;
 import com.example.hante.newprojectsum.meterialdesign.bean.ZhihuArt;
 import com.example.hante.newprojectsum.net.retrofit.IRetrofit;
 import com.example.hante.newprojectsum.okhttpactivity.model.ZhiHu;
 import com.example.hante.newprojectsum.tablelayout.LazyFragment;
 import com.example.hante.newprojectsum.tablelayout.adapter.RecyclerVIewFragA;
+import com.example.hante.newprojectsum.util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +69,11 @@ public class AFragment extends LazyFragment implements SwipeRefreshLayout.OnRefr
         mRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.Refresh_Layout);
         mRecyclerViewA.setHasFixedSize(true);
         mRecyclerViewA.setLayoutManager(new LinearLayoutManager(getActivity()));// 必设
+        int leftRight = Utils.dpToPx(2);
+        int topBottom = Utils.dpToPx(2);
+        mRecyclerViewA.addItemDecoration(new LinearSpacesItemDecoration(leftRight, topBottom, 0));
+        mRecyclerViewA.addItemDecoration(new LinearSpacesItemDecoration(leftRight, topBottom,
+                getResources().getColor(R.color.header_green_bar_color)));
         mRefreshLayout.setRefreshing(true);
         mRefreshLayout.setOnRefreshListener(this);
         mListZhiHu = new ArrayList<>();
