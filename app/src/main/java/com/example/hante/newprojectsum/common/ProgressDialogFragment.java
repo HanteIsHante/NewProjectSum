@@ -35,7 +35,6 @@ public class ProgressDialogFragment extends DialogFragment{
     @Nullable
     @Override
     public View onCreateView (LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.progress_bar, container, false);
-        return view;
+        return inflater.inflate(R.layout.progress_bar, container, false);
     }
 }
