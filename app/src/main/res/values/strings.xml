@@ -2,8 +2,11 @@
     <string name="app_name">新工程</string>
 
     <string name="app">New Project</string>
-
+    <string name="none"> </string>
     <string name="entry">进入首页</string>
+    <string name="buy">购买</string>
+    <string name="name">Jaeger</string>
+    <string name="buy_style">请选择购买方式</string>
     <!-- 分享 -->
     <string name="webview">WebView</string>
     <string name="share">分享</string>

@@ -18,4 +18,10 @@
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     />
 
+    <Button
+        android:id="@+id/go_buy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/text_bg"
+        android:text="@string/buy"/>
 </LinearLayout>

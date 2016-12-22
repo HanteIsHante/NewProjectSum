@@ -2,11 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.hante.newprojectsum">
 
-    <!--accessibilityService-->
-    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
+    <!-- accessibilityService -->
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
-    <!--自动重启权限-->
+    <!-- 自动重启权限 -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
@@ -16,7 +17,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="165cbe8d99ed152b803e32962bcaf5df3f8cb638" />
+            android:value="165cbe8d99ed152b803e32962bcaf5df3f8cb638"/>
         <!-- 广播 静态注册 -->
         <receiver
             android:name=".broadcast.BootReceiver"
@@ -31,7 +32,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.ALARM_SERVICE"/>
             </intent-filter>
-
         </receiver>
         <receiver
             android:name=".broadcast.InstallAppReceiver"
@@ -42,13 +42,13 @@
             </intent-filter>
         </receiver>
 
-        <!--accessibilityService -->
+        <!-- accessibilityService -->
         <receiver android:name=".broadcast.ScreenBroadcastReceiver">
-                <intent-filter>
-                    <action android:name="android.intent.action.SCREEN_ON"/>
-                    <action android:name="android.intent.action.SCREEN_OFF"/>
-                    <action android:name="android.intent.action.USER_PRESENT"/>
-                </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
         </receiver>
 
         <activity
@@ -61,7 +61,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activitys.ViewPagerActivity"
             android:screenOrientation="portrait"/>
@@ -87,37 +86,41 @@
             android:exported="false"/>
         <service android:name=".service.BinderService"/>
         <service android:name=".service.ForegroundNotificationService"/>
-        <!--定时提醒后台服务-->
-        <service android:name=".setting.service.AlarmService"
+        <!-- 定时提醒后台服务 -->
+        <service
+            android:name=".setting.service.AlarmService"
             android:enabled="true"
             android:exported="true"
-            android:persistent = "true"
-            android:priority = "1000"/>
-        <!--AccessibilityService-->
-        <service android:name=".accessibilityservice.MyAccessibilityService"
-                 android:enabled="true"
-                 android:exported="true"
-                 android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            android:persistent="true"
+            android:priority="1000"/>
+        <!-- AccessibilityService -->
+        <service
+            android:name=".accessibilityservice.MyAccessibilityService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
             </intent-filter>
-            <!--在meta-data里申明配置信息-->
+            <!-- 在meta-data里申明配置信息 -->
             <meta-data
                 android:name="android.accessibilityservice"
-                android:resource="@xml/accessibilityservice" />
+                android:resource="@xml/accessibilityservice"/>
+        </service>
+        <service
+            android:name=".accessibilityservice.AutoAccessibilityService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/autoaccessibilityservice"/>
         </service>
 
-        <service android:name=".accessibilityservice.AutoAccessibilityService"
-            android:enabled="true"
-            android:exported="true"
-                 android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
-            <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
-            </intent-filter>
-            <meta-data
-                android:name="android.accessibilityservice"
-                android:resource="@xml/autoaccessibilityservice" />
-        </service>
         <activity
             android:name=".serviceactivity.ServiceActivity"
             android:screenOrientation="portrait">
@@ -138,6 +141,8 @@
         <activity android:name=".meterialdesign.MaterialDesignAppBarActivity">
         </activity>
         <activity android:name=".setting.activity.SettingActivity">
+        </activity>
+        <activity android:name=".pay.PayActivity">
         </activity>
     </application>
 
