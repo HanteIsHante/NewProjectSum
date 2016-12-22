@@ -18,7 +18,7 @@
                 android:id="@+id/shareto_left_margin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical"/>
 
             <TextView
                 android:id="@+id/share_to_textView"
@@ -74,7 +74,7 @@
                 android:id="@+id/weibo_left_margin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical"/>
 
             <TextView
                 android:id="@+id/share_weibo"
@@ -107,7 +107,7 @@
                 android:id="@+id/facebook_left_margin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical"/>
 
             <TextView
                 android:id="@+id/share_facebook"
@@ -140,7 +140,7 @@
                 android:id="@+id/twitter_left_margin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical"/>
 
             <TextView
                 android:id="@+id/share_twitter"
@@ -173,7 +173,7 @@
                 android:id="@+id/googleplus_left_margin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical"/>
 
             <TextView
                 android:id="@+id/share_googleplus"
@@ -206,7 +206,7 @@
                 android:id="@+id/custom_left_margin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical"/>
 
             <TextView
                 android:id="@+id/share_custom"
@@ -237,7 +237,7 @@
                 android:id="@+id/share_get_coins_left_margin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical"/>
 
             <TextView
                 android:id="@+id/share_dialog_share_get_nb_coins_linear"
@@ -252,5 +252,5 @@
             android:id="@+id/below_dialog_linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical"/>
 </LinearLayout>

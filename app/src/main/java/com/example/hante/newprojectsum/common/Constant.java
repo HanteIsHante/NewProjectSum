@@ -13,5 +13,8 @@ public class Constant {
 //豆瓣TopMovies
     public static final String DOUBAN_BASE_URL = "https://api.douban.com/v2/movie/";
 
+    public static final int ALIPAY = 0;
+    public static final int WEIXIN = 1;
+    public static final int PAYPAL = 2;
 
 }

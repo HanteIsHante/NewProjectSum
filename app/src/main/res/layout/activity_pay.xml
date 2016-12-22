@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.example.hante.newprojectsum.pay.PayActivity">
+
+    <!--设置 fitsSystemWindow 侧边栏顶部沉浸 ，否则会显示透明-->
+    <com.example.hante.newprojectsum.custome.TitleBar
+        android:id="@+id/pay_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/payment_we_chat_default"
+        android:paddingTop="@dimen/padding_top"
+        android:fitsSystemWindows="true"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/buy_vip"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/header_green_bar_color"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/text_bg"
+            android:text="@string/buy"/>
+    </RelativeLayout>
+</LinearLayout>

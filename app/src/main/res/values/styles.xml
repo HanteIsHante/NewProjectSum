@@ -52,4 +52,9 @@
         <!--是否需要dialog遮罩-->
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+    
+    <style name="payStyle" parent="android:style/Theme.Dialog">
+        <item name="android:windowEnterAnimation">@anim/slide_bottom_to_top</item>
+        <item name="android:windowExitAnimation">@anim/slide_top_to_bottom</item>
+    </style>
 </resources>
