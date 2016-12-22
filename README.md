@@ -27,7 +27,7 @@ header 1 | header 2
 |**[DBHelper](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/sqlite/DBHelper.java)**|数据库操作|
 |**[TextInputLayoutActivity](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/textinputactivity/TextInputLayoutActivity.java)**|TextInputLayout 含数据库增删改查操作|
 |**[LinearSpacesitemDecoration](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/itemdevider/LinearSpacesItemDecoration.java)**|RecyclerView LinearLayoutManger 分割线(可设置颜色)
-
+|**[DividerItemDecoration](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/itemdevider/DividerItemDecoration.java)**|RecyclerView 设置分割线 [原著](https://github.com/jjdxmashl/jjdxm_recyclerview/blob/master/jjdxm-recyclerview/src/main/java/com/dou361/recyclerview/widget/DividerItemDecoration.java#L33)|
 ####监听
 
 广播| 作用
