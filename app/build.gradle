@@ -108,22 +108,27 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
     androidTestCompile "com.android.support:support-annotations:24.2.1"
-
+// 测试UI
     // Espresso 测试 webView
     androidTestCompile 'com.android.support.test.espresso:espresso-web:2.2.2'
 
-   //卡片布局
+//   卡片布局
     compile 'com.android.support:cardview-v7:24.2.1'
-
+//----------
 
 //内存分析
-
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+//------
 // retrofit
     compile 'com.squareup.retrofit2:retrofit:2.1.0'//目前最新的版本
     //添加好这个依赖后我们就可以进行数据转换器的配置了，retrofit内部就会帮我们去转换json字符串为Java对象
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+//----retrofit---
+//     ORMLite --------
+    compile 'com.j256.ormlite:ormlite-android:5.0'
+    compile 'com.j256.ormlite:ormlite-core:5.0'
+//    ---------
 
 }
