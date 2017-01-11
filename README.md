@@ -29,7 +29,7 @@ header 1 | header 2
 |**[LinearSpacesitemDecoration](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/itemdevider/LinearSpacesItemDecoration.java)**|RecyclerView LinearLayoutManger 分割线(可设置颜色)
 |**[DividerItemDecoration](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/itemdevider/DividerItemDecoration.java)**|RecyclerView 设置分割线 [原著](https://github.com/jjdxmashl/jjdxm_recyclerview/blob/master/jjdxm-recyclerview/src/main/java/com/dou361/recyclerview/widget/DividerItemDecoration.java#L33)|
 |**[ormlite](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/ormlite)**|ormLite 使用 |
-
+|**[DBManager](https://github.com/HanteIsHante/NewProjectSum/blob/master/app/src/main/java/com/example/hante/newprojectsum/sqlite/DBManager.java)**|SQLite管理类|
 ####监听
 
 广播| 作用
