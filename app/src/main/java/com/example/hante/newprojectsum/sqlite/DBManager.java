@@ -2,6 +2,7 @@ package com.example.hante.newprojectsum.sqlite;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -11,17 +12,24 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class DBManager {
 
-     private static DBManager instance;
-     private DBHelper mDBHelper;
-     private SQLiteDatabase db;
-     private AtomicInteger mOpenCounter = new AtomicInteger();
+    private static SQLiteOpenHelper mOpenHelper;
+    private static DBManager instance;
+    private SQLiteDatabase db;
+    private AtomicInteger mOpenCounter = new AtomicInteger();
 
-    private DBManager (Context context){
-        mDBHelper = new DBHelper(context);
-    }
-    public static synchronized DBManager getInstance (Context context){
+
+
+    public static synchronized void initInstance (SQLiteOpenHelper helper){
         if (instance == null){
-            instance = new DBManager(context);
+            instance = new DBManager();
+            mOpenHelper = helper;
+        }
+    }
+
+    public static synchronized DBManager getInstance (Context context){
+        if (instance == null) {
+            throw new IllegalStateException(DBManager.class.getSimpleName() +
+                    " is not initialized, call initializeInstance(..) method first.");
         }
         return instance;
     }
@@ -29,7 +37,7 @@ public class DBManager {
     public synchronized SQLiteDatabase getWriteDataBase() {
         if (mOpenCounter.incrementAndGet() == 1){
             // 新开
-             db = mDBHelper.getWritableDatabase();
+             db = mOpenHelper.getWritableDatabase();
         }
         return db;
     }
@@ -37,7 +45,7 @@ public class DBManager {
     public synchronized SQLiteDatabase getReadDataBase() {
         if (mOpenCounter.incrementAndGet() == 1){// 每次获取该实例mOpenCounter都通过自增来进行标记
             // 新开
-            db = mDBHelper.getReadableDatabase();
+            db = mOpenHelper.getReadableDatabase();
         }
         return db;
     }

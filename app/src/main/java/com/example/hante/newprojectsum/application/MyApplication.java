@@ -5,6 +5,8 @@ import android.app.Application;
 
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.answers.Answers;
+import com.example.hante.newprojectsum.sqlite.DBHelper;
+import com.example.hante.newprojectsum.sqlite.DBManager;
 import com.squareup.leakcanary.LeakCanary;
 
 import java.util.ArrayList;
@@ -32,6 +34,8 @@ public class MyApplication extends Application {
         }
         LeakCanary.install(this);
         // Normal app init code...
+
+        DBManager.initInstance(new DBHelper(getApplicationContext()));
     }
 
     /**
